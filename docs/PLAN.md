@@ -45,3 +45,21 @@ If M1 takes longer than two weeks, move the later milestones. Skipping a milesto
 | Date | Decision | Reason |
 | --- | --- | --- |
 | 2026-10-21 | Use pgvector inside PostgreSQL | One database to run instead of a separate vector store |
+| 2026-10-22 | Split evaluation data into dev and test sets | Avoid tuning to the questions used for the reported score |
+| 2026-10-22 | Compare RAG techniques one stage at a time against a baseline | Shows which change caused which score change |
+
+## Evaluation and experiments
+
+- Evaluation data is split into a dev set (for tuning) and a test set (for reporting). See `evals/README.md`.
+- Techniques for query translation, routing, query construction, indexing, retrieval and generation are compared one stage at a time against a baseline, using the scoring criteria in `docs/RAG-EXPERIMENTS.md`.
+- This comparison work belongs to milestone M2. M1 uses the baseline of every stage.
+
+## Datasets
+
+- FastAPI tutorial docs (MIT): https://github.com/fastapi/fastapi
+- CUAD business contracts (CC BY 4.0): https://www.kaggle.com/datasets/theatticusproject/atticus-open-contract-dataset-aok-beta
+- Full list and licenses: `data/README.md`
+
+## Future work (when time allows)
+
+- Feedback loop: thumbs up and down, flagged failures added to the dev set, and automatic retry with a different technique when retrieval confidence is low. Details at the end of `docs/RAG-EXPERIMENTS.md`.
