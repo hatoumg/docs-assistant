@@ -223,3 +223,6 @@ __marimo__/
 .env
 data/raw/
 node_modules/
+
+# Embedding cache
+worker/.cache/
