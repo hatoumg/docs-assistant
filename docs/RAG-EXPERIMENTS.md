@@ -9,18 +9,35 @@ question -> 1 Query translation -> 2 Routing -> 3 Query construction
          -> 4 Indexing (done before questions) -> 5 Retrieval -> 6 Generation -> answer + citations
 ```
 
+Before stage 4, files are turned into clean text by a parsing step (stage 0, below). Stage 0 only matters for PDFs, slides and web pages. Markdown and text files need little more than cleaning.
+
 ## How the comparison works
 
 1. **Baseline first.** Build the simplest version of every stage (listed as "Baseline" below). Run the full eval and record the score.
 2. **Change one stage at a time.** Hold every other stage at its current best. Try each of the five techniques for that stage and record all scores.
 3. **Keep the winner.** The best technique becomes the new baseline for the next stage. If nothing beats the baseline, keep the baseline and write that down. A "no gain" result is still a result.
-4. **Order of testing:** Indexing, Retrieval, Query translation, Query construction, Routing, Generation. Retrieval problems cap everything after them, so fix them first.
+4. **Order of testing:** Parsing (PDF sets only), Indexing, Retrieval, Query translation, Query construction, Routing, Generation. Retrieval problems cap everything after them, so fix them first.
 5. **Use dev questions to choose, test questions to report.** Pick winners on the dev set. Run the test set once per milestone (see `evals/README.md`).
 6. **Keep cost down.** Stages 1 to 5 can be scored with retrieval metrics only (no AI judge). Cache every model call. Use a small model while experimenting.
 
 Record every run as a row in `evals/results.csv`: date, stage, technique, dev score, retrieval metrics, cost, latency.
 
 ## Techniques to compare (baseline plus five)
+
+### 0. Parsing (turn files into clean text, before indexing)
+
+Test this on the PDF sets (annual report, research papers), where tables and columns break plain extraction. Markdown and text sets do not need it. Prefer tools that run on your own machine for private files, because hosted services receive your documents.
+
+| Technique | Idea |
+| --- | --- |
+| Baseline: plain text extraction | A basic PDF text extractor (for example pdftotext or pypdf), then the same cleaning step. |
+| MarkItDown | Microsoft's open-source converter from many file types to Markdown. |
+| Docling | Open-source layout parser from IBM. Keeps headings and tables, and can feed structure-aware chunking. |
+| Unstructured | Open-source library (and hosted service) for many formats, with chunking by section title. |
+| LlamaParse | Hosted parsing service from LlamaIndex, aimed at tables and images. Needs an account and a key, and usage is limited. |
+| Firecrawl | Turns a web page into Markdown. Use it only for web sources, such as scraping documentation sites. |
+
+Score parsing on table and layout questions: Hit@5 and answer correctness on the PDF set, plus parse time, cost and whether files leave your machine. Check each tool's current features and pricing before testing it.
 
 ### 1. Query translation (rewrite the question before searching)
 

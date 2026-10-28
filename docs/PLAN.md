@@ -47,11 +47,13 @@ If M1 takes longer than two weeks, move the later milestones. Skipping a milesto
 | 2026-10-21 | Use pgvector inside PostgreSQL | One database to run instead of a separate vector store |
 | 2026-10-22 | Split evaluation data into dev and test sets | Avoid tuning to the questions used for the reported score |
 | 2026-10-22 | Compare RAG techniques one stage at a time against a baseline | Shows which change caused which score change |
+| 2026-10-23 | Keep a simple text chunker for the MVP and compare document parsers (Docling, Unstructured, LlamaParse, MarkItDown) on the PDF sets in M2 | Markdown and text need no parser, while PDFs and tables do |
 
 ## Evaluation and experiments
 
 - Evaluation data is split into a dev set (for tuning) and a test set (for reporting). See `evals/README.md`.
 - Techniques for query translation, routing, query construction, indexing, retrieval and generation are compared one stage at a time against a baseline, using the scoring criteria in `docs/RAG-EXPERIMENTS.md`.
+- Document parsing options are compared on the PDF sets only (stage 0 in `docs/RAG-EXPERIMENTS.md`).
 - This comparison work belongs to milestone M2. M1 uses the baseline of every stage.
 
 ## Datasets

@@ -1,0 +1,485 @@
+[
+  {
+    "id": 1,
+    "kind": "direct",
+    "question": "What law governs the CO-BRANDING AGREEMENT between WOMEN.COM NETWORKS, INC. (\"Women.com\"); EDIETS.COM, INC. (\"eDiets\")?",
+    "answer": "California",
+    "source": "EdietsComInc_20001030_10QSB_EX-10.4_2606646_EX-10.4_Co-Branding Agreement.txt, Governing Law"
+  },
+  {
+    "id": 2,
+    "kind": "direct",
+    "question": "On what date was the CO-BRANDING AGREEMENT between WOMEN.COM NETWORKS, INC. (\"Women.com\"); EDIETS.COM, INC. (\"eDiets\") signed or dated?",
+    "answer": "5/22/00",
+    "source": "EdietsComInc_20001030_10QSB_EX-10.4_2606646_EX-10.4_Co-Branding Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 3,
+    "kind": "direct",
+    "question": "When does the CO-BRANDING AGREEMENT between WOMEN.COM NETWORKS, INC. (\"Women.com\"); EDIETS.COM, INC. (\"eDiets\") expire?",
+    "answer": "5/22/02",
+    "source": "EdietsComInc_20001030_10QSB_EX-10.4_2606646_EX-10.4_Co-Branding Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 4,
+    "kind": "direct",
+    "question": "What law governs the DEVELOPMENT AGREEMENT between Howmedica Ostenonics Corp. (\"Stryker\"); Conformis, Inc. (\"Conformis\"); Stryker and Conformis (“Parties” and individually as a “Party.”)?",
+    "answer": "New York",
+    "source": "ConformisInc_20191101_10-Q_EX-10.6_11861402_EX-10.6_Development Agreement.txt, Governing Law"
+  },
+  {
+    "id": 5,
+    "kind": "direct",
+    "question": "On what date was the DEVELOPMENT AGREEMENT between Howmedica Ostenonics Corp. (\"Stryker\"); Conformis, Inc. (\"Conformis\"); Stryker and Conformis (“Parties” and individually as a “Party.”) signed or dated?",
+    "answer": "9/30/19",
+    "source": "ConformisInc_20191101_10-Q_EX-10.6_11861402_EX-10.6_Development Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 6,
+    "kind": "direct",
+    "question": "What law governs the CONSULTING AGREEMENT between Slinger Bag Inc. (the \"Company\"); Aitan Zacharin ( the \"Consultant\")?",
+    "answer": "New York",
+    "source": "SLINGERBAGINC_05_27_2020-EX-10.7-CONSULTING AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 7,
+    "kind": "direct",
+    "question": "On what date was the CONSULTING AGREEMENT between Slinger Bag Inc. (the \"Company\"); Aitan Zacharin ( the \"Consultant\") signed or dated?",
+    "answer": "04/30/[]",
+    "source": "SLINGERBAGINC_05_27_2020-EX-10.7-CONSULTING AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 8,
+    "kind": "direct",
+    "question": "When does the CONSULTING AGREEMENT between Slinger Bag Inc. (the \"Company\"); Aitan Zacharin ( the \"Consultant\") expire?",
+    "answer": "4/30/[][]",
+    "source": "SLINGERBAGINC_05_27_2020-EX-10.7-CONSULTING AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 9,
+    "kind": "direct",
+    "question": "What law governs the Distributor Agreement Distributor Agreement between Airspan Networks Incorporated (\"Airspan\"); GLS LLC (\"Distributor\")?",
+    "answer": "South Dakota",
+    "source": "AIRSPANNETWORKSINC_04_11_2000-EX-10.5-Distributor Agreement.txt, Governing Law"
+  },
+  {
+    "id": 10,
+    "kind": "direct",
+    "question": "On what date was the Distributor Agreement Distributor Agreement between Airspan Networks Incorporated (\"Airspan\"); GLS LLC (\"Distributor\") signed or dated?",
+    "answer": "3/31/00",
+    "source": "AIRSPANNETWORKSINC_04_11_2000-EX-10.5-Distributor Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 11,
+    "kind": "direct",
+    "question": "When does the Distributor Agreement Distributor Agreement between Airspan Networks Incorporated (\"Airspan\"); GLS LLC (\"Distributor\") expire?",
+    "answer": "3/31/05",
+    "source": "AIRSPANNETWORKSINC_04_11_2000-EX-10.5-Distributor Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 12,
+    "kind": "direct",
+    "question": "What law governs the CONSULTING AGREEMENT between Kriomic, Inc (\"Company\"); Gianluca Rotino (\"Consultant\")?",
+    "answer": "Texas",
+    "source": "KIROMICBIOPHARMA,INC_05_11_2020-EX-10.23-CONSULTING AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 13,
+    "kind": "direct",
+    "question": "On what date was the CONSULTING AGREEMENT between Kriomic, Inc (\"Company\"); Gianluca Rotino (\"Consultant\") signed or dated?",
+    "answer": "7/20/18",
+    "source": "KIROMICBIOPHARMA,INC_05_11_2020-EX-10.23-CONSULTING AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 14,
+    "kind": "direct",
+    "question": "When does the CONSULTING AGREEMENT between Kriomic, Inc (\"Company\"); Gianluca Rotino (\"Consultant\") expire?",
+    "answer": "perpetual",
+    "source": "KIROMICBIOPHARMA,INC_05_11_2020-EX-10.23-CONSULTING AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 15,
+    "kind": "direct",
+    "question": "What law governs the Collaboration Agreement between Didi Chuxing Technology Co., Ltd. (\"Party A\"); Hunan Ruixi Financial Leasing Co., Ltd (\"Party B\"); Party A and Party B (individually referred to as a “Party” and collectively as the “Parties”)?",
+    "answer": "China",
+    "source": "SENMIAOTECHNOLOGYLTD_02_19_2019-EX-10.5-Collaboration Agreement.txt, Governing Law"
+  },
+  {
+    "id": 16,
+    "kind": "direct",
+    "question": "On what date was the Collaboration Agreement between Didi Chuxing Technology Co., Ltd. (\"Party A\"); Hunan Ruixi Financial Leasing Co., Ltd (\"Party B\"); Party A and Party B (individually referred to as a “Party” and collectively as the “Parties”) signed or dated?",
+    "answer": "12/17/18",
+    "source": "SENMIAOTECHNOLOGYLTD_02_19_2019-EX-10.5-Collaboration Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 17,
+    "kind": "direct",
+    "question": "When does the Collaboration Agreement between Didi Chuxing Technology Co., Ltd. (\"Party A\"); Hunan Ruixi Financial Leasing Co., Ltd (\"Party B\"); Party A and Party B (individually referred to as a “Party” and collectively as the “Parties”) expire?",
+    "answer": "12/17/19",
+    "source": "SENMIAOTECHNOLOGYLTD_02_19_2019-EX-10.5-Collaboration Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 18,
+    "kind": "direct",
+    "question": "What law governs the Collaboration Agreement between Anixa Biosciences, Inc. (\"Anixa\"); OntoChem GmbH (\"OntoChem\")( individually as a “Party” and collectively as the “Parties”)?",
+    "answer": "Delaware",
+    "source": "ANIXABIOSCIENCESINC_06_09_2020-EX-10.1-COLLABORATION AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 19,
+    "kind": "direct",
+    "question": "On what date was the Collaboration Agreement between Anixa Biosciences, Inc. (\"Anixa\"); OntoChem GmbH (\"OntoChem\")( individually as a “Party” and collectively as the “Parties”) signed or dated?",
+    "answer": "4/14/20",
+    "source": "ANIXABIOSCIENCESINC_06_09_2020-EX-10.1-COLLABORATION AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 20,
+    "kind": "direct",
+    "question": "What law governs the COOPERATION AGREEMENT between City of Fort Stockton (\"COFS\"); STW resources Holding Corp (\"STW\"); individually referred to as a \"Party, collectively referred to as \"Parties?",
+    "answer": "Texas",
+    "source": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 21,
+    "kind": "direct",
+    "question": "On what date was the COOPERATION AGREEMENT between City of Fort Stockton (\"COFS\"); STW resources Holding Corp (\"STW\"); individually referred to as a \"Party, collectively referred to as \"Parties signed or dated?",
+    "answer": "[]/[]/2014",
+    "source": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 22,
+    "kind": "direct",
+    "question": "When does the COOPERATION AGREEMENT between City of Fort Stockton (\"COFS\"); STW resources Holding Corp (\"STW\"); individually referred to as a \"Party, collectively referred to as \"Parties expire?",
+    "answer": "[]/[]/2044",
+    "source": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 23,
+    "kind": "direct",
+    "question": "What law governs the STRATEGIC ALLIANCE AGREEMENT between Hyatt Franchising Latin America, L.L.C. (\"Hyatt\"); Playa Hotels & Resorts, B.V. (\"Playa\"); Hyatt and Playa (each a “Party” and collectively as the “Parties”)?",
+    "answer": "Illinois",
+    "source": "PLAYAHOTELS_RESORTSNV_03_14_2017-EX-10.22-STRATEGIC ALLIANCE AGREEMENT (Hyatt Ziva Cancun).txt, Governing Law"
+  },
+  {
+    "id": 24,
+    "kind": "direct",
+    "question": "On what date was the STRATEGIC ALLIANCE AGREEMENT between Hyatt Franchising Latin America, L.L.C. (\"Hyatt\"); Playa Hotels & Resorts, B.V. (\"Playa\"); Hyatt and Playa (each a “Party” and collectively as the “Parties”) signed or dated?",
+    "answer": "12/14/16",
+    "source": "PLAYAHOTELS_RESORTSNV_03_14_2017-EX-10.22-STRATEGIC ALLIANCE AGREEMENT (Hyatt Ziva Cancun).txt, Agreement Date"
+  },
+  {
+    "id": 25,
+    "kind": "direct",
+    "question": "What law governs the Corporate Sponsorship Agreement between Freeze Tag Inc. (\"Company\"); American Diabetes Association (\"Association\")?",
+    "answer": "Virginia",
+    "source": "FreezeTagInc_20180411_8-K_EX-10.1_11139603_EX-10.1_Sponsorship Agreement.txt, Governing Law"
+  },
+  {
+    "id": 26,
+    "kind": "direct",
+    "question": "On what date was the Corporate Sponsorship Agreement between Freeze Tag Inc. (\"Company\"); American Diabetes Association (\"Association\") signed or dated?",
+    "answer": "3/22/18",
+    "source": "FreezeTagInc_20180411_8-K_EX-10.1_11139603_EX-10.1_Sponsorship Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 27,
+    "kind": "direct",
+    "question": "When does the Corporate Sponsorship Agreement between Freeze Tag Inc. (\"Company\"); American Diabetes Association (\"Association\") expire?",
+    "answer": "3/14/20",
+    "source": "FreezeTagInc_20180411_8-K_EX-10.1_11139603_EX-10.1_Sponsorship Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 28,
+    "kind": "direct",
+    "question": "What law governs the STRATEGIC ALLIANCE AGREEMENT between EDGE Communication Solutions, LLC (\"EDGE\"); FRE Networks, Inc. (\"FTE\", \"Subcontractor\")?",
+    "answer": "Texas",
+    "source": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 29,
+    "kind": "direct",
+    "question": "On what date was the STRATEGIC ALLIANCE AGREEMENT between EDGE Communication Solutions, LLC (\"EDGE\"); FRE Networks, Inc. (\"FTE\", \"Subcontractor\") signed or dated?",
+    "answer": "2/17/16",
+    "source": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 30,
+    "kind": "direct",
+    "question": "When does the STRATEGIC ALLIANCE AGREEMENT between EDGE Communication Solutions, LLC (\"EDGE\"); FRE Networks, Inc. (\"FTE\", \"Subcontractor\") expire?",
+    "answer": "2/16/19",
+    "source": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 31,
+    "kind": "direct",
+    "question": "What law governs the Maintenance and Support Agreement between VerticalNet,Inc (\"VNI\"); Vertical Enterprises LLC formerly known as Tradeum, Inc. which d/b/a VerticalNet Solutions (\"VNE\"; collectively with VNI, \"VERT\"); Converge, Inc.(\"Coverage\")?",
+    "answer": "Pennsylvania",
+    "source": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 32,
+    "kind": "direct",
+    "question": "On what date was the Maintenance and Support Agreement between VerticalNet,Inc (\"VNI\"); Vertical Enterprises LLC formerly known as Tradeum, Inc. which d/b/a VerticalNet Solutions (\"VNE\"; collectively with VNI, \"VERT\"); Converge, Inc.(\"Coverage\") signed or dated?",
+    "answer": "10/9/01",
+    "source": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 33,
+    "kind": "direct",
+    "question": "When does the Maintenance and Support Agreement between VerticalNet,Inc (\"VNI\"); Vertical Enterprises LLC formerly known as Tradeum, Inc. which d/b/a VerticalNet Solutions (\"VNE\"; collectively with VNI, \"VERT\"); Converge, Inc.(\"Coverage\") expire?",
+    "answer": "3/31/03",
+    "source": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 34,
+    "kind": "direct",
+    "question": "What law governs the CO-BRANDING AGREEMENT between Lucent Technologies Inc. (\"Lucent\"); mPhase Technologies Inc. (\"mPhase\")(\"a Party\" and collectively, \"the Parties\")?",
+    "answer": "New York",
+    "source": "MphaseTechnologiesInc_20030911_10-K_EX-10.15_1560667_EX-10.15_Co-Branding Agreement.txt, Governing Law"
+  },
+  {
+    "id": 35,
+    "kind": "direct",
+    "question": "On what date was the CO-BRANDING AGREEMENT between Lucent Technologies Inc. (\"Lucent\"); mPhase Technologies Inc. (\"mPhase\")(\"a Party\" and collectively, \"the Parties\") signed or dated?",
+    "answer": "1/21/03",
+    "source": "MphaseTechnologiesInc_20030911_10-K_EX-10.15_1560667_EX-10.15_Co-Branding Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 36,
+    "kind": "direct",
+    "question": "When does the CO-BRANDING AGREEMENT between Lucent Technologies Inc. (\"Lucent\"); mPhase Technologies Inc. (\"mPhase\")(\"a Party\" and collectively, \"the Parties\") expire?",
+    "answer": "1/21/04",
+    "source": "MphaseTechnologiesInc_20030911_10-K_EX-10.15_1560667_EX-10.15_Co-Branding Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 37,
+    "kind": "direct",
+    "question": "What law governs the Strategic Alliance Agreement between IntriCon Corporation (\"IntriCon\"); Dynamic Hearing Pty Ltd (\"Dynamic Hearing\")?",
+    "answer": "Victoria, Australia",
+    "source": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement.txt, Governing Law"
+  },
+  {
+    "id": 38,
+    "kind": "direct",
+    "question": "On what date was the Strategic Alliance Agreement between IntriCon Corporation (\"IntriCon\"); Dynamic Hearing Pty Ltd (\"Dynamic Hearing\") signed or dated?",
+    "answer": "10/1/08",
+    "source": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 39,
+    "kind": "direct",
+    "question": "When does the Strategic Alliance Agreement between IntriCon Corporation (\"IntriCon\"); Dynamic Hearing Pty Ltd (\"Dynamic Hearing\") expire?",
+    "answer": "10/1/13",
+    "source": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 40,
+    "kind": "direct",
+    "question": "What law governs the MASTER SUPPLY AGREEMENT between REYNOLDS CONSUMER PRODUCTS LLC (\"Seller\"); PACTIV LLC (\"Buyer\")(\"Party\" and collectively at times as the \"Parties\")?",
+    "answer": "Illinois",
+    "source": "ReynoldsConsumerProductsInc_20191115_S-1_EX-10.18_11896469_EX-10.18_Supply Agreement.txt, Governing Law"
+  },
+  {
+    "id": 41,
+    "kind": "direct",
+    "question": "On what date was the MASTER SUPPLY AGREEMENT between REYNOLDS CONSUMER PRODUCTS LLC (\"Seller\"); PACTIV LLC (\"Buyer\")(\"Party\" and collectively at times as the \"Parties\") signed or dated?",
+    "answer": "11/1/19",
+    "source": "ReynoldsConsumerProductsInc_20191115_S-1_EX-10.18_11896469_EX-10.18_Supply Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 42,
+    "kind": "direct",
+    "question": "What law governs the Supply Agreement between Miltenyi Biotec GmbH (\"Miltenyi\"); Bellicum Phamaceuticals, Inc. (\"Bellicum\"); Miltenyi and Bellicum (individually as a “Party” and collectively as the “Parties”)?",
+    "answer": "New York",
+    "source": "BELLICUMPHARMACEUTICALS,INC_05_07_2019-EX-10.1-Supply Agreement.txt, Governing Law"
+  },
+  {
+    "id": 43,
+    "kind": "direct",
+    "question": "On what date was the Supply Agreement between Miltenyi Biotec GmbH (\"Miltenyi\"); Bellicum Phamaceuticals, Inc. (\"Bellicum\"); Miltenyi and Bellicum (individually as a “Party” and collectively as the “Parties”) signed or dated?",
+    "answer": "3/27/19",
+    "source": "BELLICUMPHARMACEUTICALS,INC_05_07_2019-EX-10.1-Supply Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 44,
+    "kind": "direct",
+    "question": "When does the Supply Agreement between Miltenyi Biotec GmbH (\"Miltenyi\"); Bellicum Phamaceuticals, Inc. (\"Bellicum\"); Miltenyi and Bellicum (individually as a “Party” and collectively as the “Parties”) expire?",
+    "answer": "3/27/29",
+    "source": "BELLICUMPHARMACEUTICALS,INC_05_07_2019-EX-10.1-Supply Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 45,
+    "kind": "direct",
+    "question": "What law governs the COOPERATION AGREEMENT between JANA Partners LLC (\"JANA\"); URS Corporation (\"Company\")?",
+    "answer": "Delaware",
+    "source": "URSCORPNEW_03_17_2014-EX-99-COOPERATION AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 46,
+    "kind": "direct",
+    "question": "On what date was the COOPERATION AGREEMENT between JANA Partners LLC (\"JANA\"); URS Corporation (\"Company\") signed or dated?",
+    "answer": "3/13/14",
+    "source": "URSCORPNEW_03_17_2014-EX-99-COOPERATION AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 47,
+    "kind": "direct",
+    "question": "What law governs the Software License Agreement [v.08.05.03] between Customer; Cisco Systems, Inc. or its subsidiaries licensing the Software instead of Cisco Systems (\"Cisco\"); Customer?",
+    "answer": "California",
+    "source": "ScansourceInc_20190822_10-K_EX-10.38_11793958_EX-10.38_Distributor Agreement2.txt, Governing Law"
+  },
+  {
+    "id": 48,
+    "kind": "direct",
+    "question": "When does the Software License Agreement [v.08.05.03] between Customer; Cisco Systems, Inc. or its subsidiaries licensing the Software instead of Cisco Systems (\"Cisco\"); Customer expire?",
+    "answer": "perpetual",
+    "source": "ScansourceInc_20190822_10-K_EX-10.38_11793958_EX-10.38_Distributor Agreement2.txt, Expiration Date"
+  },
+  {
+    "id": 49,
+    "kind": "direct",
+    "question": "What law governs the GLOBAL MAINTENANCE AGREEMENT ( between AZUL LINHAS AÉREAS BRASILEIRAS S/A (\"Company\", \"AZUL\"); AVIONS DE TRANSPORT REGIONAL, G.I.E. (“Repairer”, “ATR”); AZUL LINHAS AÉREAS BRASILEIRAS and AVIONS DE TRANSPORT REGIONAL, G.I.E. (individually referred to as the “Party” or collectively as the “Parties”)?",
+    "answer": "New York",
+    "source": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement1.txt, Governing Law"
+  },
+  {
+    "id": 50,
+    "kind": "direct",
+    "question": "On what date was the GLOBAL MAINTENANCE AGREEMENT ( between AZUL LINHAS AÉREAS BRASILEIRAS S/A (\"Company\", \"AZUL\"); AVIONS DE TRANSPORT REGIONAL, G.I.E. (“Repairer”, “ATR”); AZUL LINHAS AÉREAS BRASILEIRAS and AVIONS DE TRANSPORT REGIONAL, G.I.E. (individually referred to as the “Party” or collectively as the “Parties”) signed or dated?",
+    "answer": "3/9/15",
+    "source": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement1.txt, Agreement Date"
+  },
+  {
+    "id": 51,
+    "kind": "direct",
+    "question": "What law governs the TRANSFER AND SERVICING AGREEMENT, d between VERIZON OWNER TRUST (\"Issuer\"); VERIZON ABS LLC (\"Depositor\"); Cellco Partnership d/b/a Verizon Wireless (\"Cellco\", \"Servicer\", \"Marketing Agent\", \"Custodian\")?",
+    "answer": "New York",
+    "source": "VerizonAbsLlc_20200123_8-K_EX-10.4_11952335_EX-10.4_Service Agreement.txt, Governing Law"
+  },
+  {
+    "id": 52,
+    "kind": "direct",
+    "question": "On what date was the TRANSFER AND SERVICING AGREEMENT, d between VERIZON OWNER TRUST (\"Issuer\"); VERIZON ABS LLC (\"Depositor\"); Cellco Partnership d/b/a Verizon Wireless (\"Cellco\", \"Servicer\", \"Marketing Agent\", \"Custodian\") signed or dated?",
+    "answer": "1/29/20",
+    "source": "VerizonAbsLlc_20200123_8-K_EX-10.4_11952335_EX-10.4_Service Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 53,
+    "kind": "direct",
+    "question": "What law governs the JOINT DEVELOPMENT AND MARKETING AGREEMENT between LECLANCHÉ S.A. (\"Leclanché\"); OAK RIDGE ENERGY TECHNOLOGIES INC (\"Oak Ridge\"); (each a \"Party\"” and together \"Parties\")?",
+    "answer": "Switzerland",
+    "source": "LECLANCHÉ S.A. - JOINT DEVELOPMENT AND MARKETING AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 54,
+    "kind": "direct",
+    "question": "On what date was the JOINT DEVELOPMENT AND MARKETING AGREEMENT between LECLANCHÉ S.A. (\"Leclanché\"); OAK RIDGE ENERGY TECHNOLOGIES INC (\"Oak Ridge\"); (each a \"Party\"” and together \"Parties\") signed or dated?",
+    "answer": "4/6/14",
+    "source": "LECLANCHÉ S.A. - JOINT DEVELOPMENT AND MARKETING AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 55,
+    "kind": "direct",
+    "question": "When does the JOINT DEVELOPMENT AND MARKETING AGREEMENT between LECLANCHÉ S.A. (\"Leclanché\"); OAK RIDGE ENERGY TECHNOLOGIES INC (\"Oak Ridge\"); (each a \"Party\"” and together \"Parties\") expire?",
+    "answer": "4/6/15",
+    "source": "LECLANCHÉ S.A. - JOINT DEVELOPMENT AND MARKETING AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 56,
+    "kind": "direct",
+    "question": "What law governs the SPONSORSHIP AGREEMENT between Excite, Inc.\"Excite\"; CyberShop \"Client?",
+    "answer": "New York",
+    "source": "GSVINC_05_15_1998-EX-10-SPONSORSHIP AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 57,
+    "kind": "direct",
+    "question": "On what date was the SPONSORSHIP AGREEMENT between Excite, Inc.\"Excite\"; CyberShop \"Client signed or dated?",
+    "answer": "3/31/98",
+    "source": "GSVINC_05_15_1998-EX-10-SPONSORSHIP AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 58,
+    "kind": "direct",
+    "question": "When does the SPONSORSHIP AGREEMENT between Excite, Inc.\"Excite\"; CyberShop \"Client expire?",
+    "answer": "perpetual",
+    "source": "GSVINC_05_15_1998-EX-10-SPONSORSHIP AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 59,
+    "kind": "direct",
+    "question": "What law governs the DISTRIBUTOR AGREEMENT between Electric City Corp. (\"Company\"); Electric City of Illinois LLC (\"Distributor\", \"Electric City of Illinois L.L.C.\")?",
+    "answer": "Illinois",
+    "source": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 60,
+    "kind": "direct",
+    "question": "On what date was the DISTRIBUTOR AGREEMENT between Electric City Corp. (\"Company\"); Electric City of Illinois LLC (\"Distributor\", \"Electric City of Illinois L.L.C.\") signed or dated?",
+    "answer": "7/7/99",
+    "source": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 61,
+    "kind": "direct",
+    "question": "What law governs the MARINE TRANSPORTATION AGREEMENT between Martin Operating Partnership L.P. (\"Owner\"); Midstream Fuel Service LLC (\"Charterer\")?",
+    "answer": "Texas",
+    "source": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 62,
+    "kind": "direct",
+    "question": "On what date was the MARINE TRANSPORTATION AGREEMENT between Martin Operating Partnership L.P. (\"Owner\"); Midstream Fuel Service LLC (\"Charterer\") signed or dated?",
+    "answer": "12/23/03",
+    "source": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 63,
+    "kind": "direct",
+    "question": "When does the MARINE TRANSPORTATION AGREEMENT between Martin Operating Partnership L.P. (\"Owner\"); Midstream Fuel Service LLC (\"Charterer\") expire?",
+    "answer": "12/23/06",
+    "source": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 64,
+    "kind": "direct",
+    "question": "What law governs the CO-BRANDING AGREEMENT between Skype Communications, S.A. (\"Skype\"); Skype Technologies, S.A. (\"Skype Holding\"); TOM Online (BVI) limited(\"Online BVI\"); TOM Online Inc. (\"Tom Holding\"); Tel Online Limited (\"Company\"). Skype, Online BVI and the Company (“Party” and collectively as “Parties.”); Skype, Online BVI, the Company, Skype Holding and Tom Holding (“party to this Agreement” and collectively as “parties to this Agreement.”)?",
+    "answer": "England, United Kingdom; Wales, United Kingdom",
+    "source": "TomOnlineInc_20060501_20-F_EX-4.46_749700_EX-4.46_Co-Branding Agreement.txt, Governing Law"
+  },
+  {
+    "id": 65,
+    "kind": "direct",
+    "question": "On what date was the CO-BRANDING AGREEMENT between Skype Communications, S.A. (\"Skype\"); Skype Technologies, S.A. (\"Skype Holding\"); TOM Online (BVI) limited(\"Online BVI\"); TOM Online Inc. (\"Tom Holding\"); Tel Online Limited (\"Company\"). Skype, Online BVI and the Company (“Party” and collectively as “Parties.”); Skype, Online BVI, the Company, Skype Holding and Tom Holding (“party to this Agreement” and collectively as “parties to this Agreement.”) signed or dated?",
+    "answer": "8/22/05",
+    "source": "TomOnlineInc_20060501_20-F_EX-4.46_749700_EX-4.46_Co-Branding Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 66,
+    "kind": "direct",
+    "question": "When does the CO-BRANDING AGREEMENT between Skype Communications, S.A. (\"Skype\"); Skype Technologies, S.A. (\"Skype Holding\"); TOM Online (BVI) limited(\"Online BVI\"); TOM Online Inc. (\"Tom Holding\"); Tel Online Limited (\"Company\"). Skype, Online BVI and the Company (“Party” and collectively as “Parties.”); Skype, Online BVI, the Company, Skype Holding and Tom Holding (“party to this Agreement” and collectively as “parties to this Agreement.”) expire?",
+    "answer": "8/22/10",
+    "source": "TomOnlineInc_20060501_20-F_EX-4.46_749700_EX-4.46_Co-Branding Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 67,
+    "kind": "not-found",
+    "question": "How do I configure rate limiting on a FastAPI route?",
+    "answer": "Not found in these documents.",
+    "source": "none"
+  },
+  {
+    "id": 68,
+    "kind": "not-found",
+    "question": "What is the cafeteria menu for next Tuesday?",
+    "answer": "Not found in these documents.",
+    "source": "none"
+  },
+  {
+    "id": 69,
+    "kind": "not-found",
+    "question": "Which database index type does the system use for vector search?",
+    "answer": "Not found in these documents.",
+    "source": "none"
+  }
+]

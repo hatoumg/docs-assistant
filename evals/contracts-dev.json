@@ -1,0 +1,485 @@
+[
+  {
+    "id": 1,
+    "kind": "direct",
+    "question": "What law governs the NONEXCLUSIVE VALUE ADDED DISTRIBUTOR AGREEMENT between ScanSource, Inc. (\"Distributor\"); Cisco Systems, Inc. (\"Cisco\")?",
+    "answer": "New York",
+    "source": "ScansourceInc_20190822_10-K_EX-10.38_11793958_EX-10.38_Distributor Agreement1.txt, Governing Law"
+  },
+  {
+    "id": 2,
+    "kind": "direct",
+    "question": "On what date was the NONEXCLUSIVE VALUE ADDED DISTRIBUTOR AGREEMENT between ScanSource, Inc. (\"Distributor\"); Cisco Systems, Inc. (\"Cisco\") signed or dated?",
+    "answer": "1/22/07",
+    "source": "ScansourceInc_20190822_10-K_EX-10.38_11793958_EX-10.38_Distributor Agreement1.txt, Agreement Date"
+  },
+  {
+    "id": 3,
+    "kind": "direct",
+    "question": "When does the NONEXCLUSIVE VALUE ADDED DISTRIBUTOR AGREEMENT between ScanSource, Inc. (\"Distributor\"); Cisco Systems, Inc. (\"Cisco\") expire?",
+    "answer": "1/22/09",
+    "source": "ScansourceInc_20190822_10-K_EX-10.38_11793958_EX-10.38_Distributor Agreement1.txt, Expiration Date"
+  },
+  {
+    "id": 4,
+    "kind": "direct",
+    "question": "What law governs the Outsourcing Contract on Development of Miaoli Royal Resort Hotel between The HUANG JIA Country CLUB and Recreation Inc. (\"Party A\"); Chang Chen-Bin Architects Office (\"Party B\")?",
+    "answer": "Taiwan",
+    "source": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement.txt, Governing Law"
+  },
+  {
+    "id": 5,
+    "kind": "direct",
+    "question": "On what date was the Outsourcing Contract on Development of Miaoli Royal Resort Hotel between The HUANG JIA Country CLUB and Recreation Inc. (\"Party A\"); Chang Chen-Bin Architects Office (\"Party B\") signed or dated?",
+    "answer": "10/29/15",
+    "source": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 6,
+    "kind": "direct",
+    "question": "What law governs the Strategic Alliance Agreement between Yaskawa Electric Corporation (\"YEC\"); Argo Medical Technologies Ltd. (\"ARGO\")?",
+    "answer": "Israel",
+    "source": "REWALKROBOTICSLTD_07_10_2014-EX-10.2-STRATEGIC ALLIANCE AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 7,
+    "kind": "direct",
+    "question": "On what date was the Strategic Alliance Agreement between Yaskawa Electric Corporation (\"YEC\"); Argo Medical Technologies Ltd. (\"ARGO\") signed or dated?",
+    "answer": "9/24/13",
+    "source": "REWALKROBOTICSLTD_07_10_2014-EX-10.2-STRATEGIC ALLIANCE AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 8,
+    "kind": "direct",
+    "question": "When does the Strategic Alliance Agreement between Yaskawa Electric Corporation (\"YEC\"); Argo Medical Technologies Ltd. (\"ARGO\") expire?",
+    "answer": "9/24/23",
+    "source": "REWALKROBOTICSLTD_07_10_2014-EX-10.2-STRATEGIC ALLIANCE AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 9,
+    "kind": "direct",
+    "question": "What law governs the STRATEGIC SALES & MARKETING AGREEMENT between SightLife Surgical, Inc. (“Surgical”); Imprimis Pharmaceuticals, Inc. (“Imprimis”)?",
+    "answer": "California",
+    "source": "SightLife Surgical, Inc. - STRATEGIC SALES _ MARKETING AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 10,
+    "kind": "direct",
+    "question": "On what date was the STRATEGIC SALES & MARKETING AGREEMENT between SightLife Surgical, Inc. (“Surgical”); Imprimis Pharmaceuticals, Inc. (“Imprimis”) signed or dated?",
+    "answer": "4/28/17",
+    "source": "SightLife Surgical, Inc. - STRATEGIC SALES _ MARKETING AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 11,
+    "kind": "direct",
+    "question": "When does the STRATEGIC SALES & MARKETING AGREEMENT between SightLife Surgical, Inc. (“Surgical”); Imprimis Pharmaceuticals, Inc. (“Imprimis”) expire?",
+    "answer": "4/28/20",
+    "source": "SightLife Surgical, Inc. - STRATEGIC SALES _ MARKETING AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 12,
+    "kind": "direct",
+    "question": "What law governs the WEB SITE HOSTING AGREEMENT between Centrack International Inc. (\"Customer\"); i-on interactive Inc. (\"i-on\")?",
+    "answer": "Florida",
+    "source": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 13,
+    "kind": "direct",
+    "question": "On what date was the WEB SITE HOSTING AGREEMENT between Centrack International Inc. (\"Customer\"); i-on interactive Inc. (\"i-on\") signed or dated?",
+    "answer": "4/6/99",
+    "source": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 14,
+    "kind": "direct",
+    "question": "When does the WEB SITE HOSTING AGREEMENT between Centrack International Inc. (\"Customer\"); i-on interactive Inc. (\"i-on\") expire?",
+    "answer": "10/1/99",
+    "source": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 15,
+    "kind": "direct",
+    "question": "What law governs the AFFILIATE AGREEMENT between Gulf South Medical Supply, Inc. (\"GSMS\"); Physician Sales & Service, Inc. (\"PSS\"); PSS Merger Corp.?",
+    "answer": "Delaware",
+    "source": "GULFSOUTHMEDICALSUPPLYINC_12_24_1997-EX-4-AFFILIATE AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 16,
+    "kind": "direct",
+    "question": "On what date was the AFFILIATE AGREEMENT between Gulf South Medical Supply, Inc. (\"GSMS\"); Physician Sales & Service, Inc. (\"PSS\"); PSS Merger Corp. signed or dated?",
+    "answer": "12/14/97",
+    "source": "GULFSOUTHMEDICALSUPPLYINC_12_24_1997-EX-4-AFFILIATE AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 17,
+    "kind": "direct",
+    "question": "What law governs the Network Management Outsourcing Agreement between (BANK OF SOUTH PACIFIC LIMITED (\"BSP\" or \"Bank of South Pacific Ltd\"); DATEC (PNG) LIMITED (\"Datec PNG Limited\" or \"Datec\" or \"PNG\"))?",
+    "answer": "Papua New Guinea",
+    "source": "ELANDIAINTERNATIONALINC_04_25_2007-EX-10.21-Outsourcing Agreement.txt, Governing Law"
+  },
+  {
+    "id": 18,
+    "kind": "direct",
+    "question": "On what date was the Network Management Outsourcing Agreement between (BANK OF SOUTH PACIFIC LIMITED (\"BSP\" or \"Bank of South Pacific Ltd\"); DATEC (PNG) LIMITED (\"Datec PNG Limited\" or \"Datec\" or \"PNG\")) signed or dated?",
+    "answer": "6/16/04",
+    "source": "ELANDIAINTERNATIONALINC_04_25_2007-EX-10.21-Outsourcing Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 19,
+    "kind": "direct",
+    "question": "When does the Network Management Outsourcing Agreement between (BANK OF SOUTH PACIFIC LIMITED (\"BSP\" or \"Bank of South Pacific Ltd\"); DATEC (PNG) LIMITED (\"Datec PNG Limited\" or \"Datec\" or \"PNG\")) expire?",
+    "answer": "6/16/09",
+    "source": "ELANDIAINTERNATIONALINC_04_25_2007-EX-10.21-Outsourcing Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 20,
+    "kind": "direct",
+    "question": "What law governs the ENDORSEMENT AGREEMENT between ABG-Shaq, LLC (\"ABG\"); Papa John's Marketing Fund, Inc (\"PJMF\"); Papa John's International, Inc (\"PJI\")(PJMF and PJI individually and collectively, \"PAPA JOHN'S\")?",
+    "answer": "Delaware",
+    "source": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement.txt, Governing Law"
+  },
+  {
+    "id": 21,
+    "kind": "direct",
+    "question": "On what date was the ENDORSEMENT AGREEMENT between ABG-Shaq, LLC (\"ABG\"); Papa John's Marketing Fund, Inc (\"PJMF\"); Papa John's International, Inc (\"PJI\")(PJMF and PJI individually and collectively, \"PAPA JOHN'S\") signed or dated?",
+    "answer": "3/15/19",
+    "source": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 22,
+    "kind": "direct",
+    "question": "When does the ENDORSEMENT AGREEMENT between ABG-Shaq, LLC (\"ABG\"); Papa John's Marketing Fund, Inc (\"PJMF\"); Papa John's International, Inc (\"PJI\")(PJMF and PJI individually and collectively, \"PAPA JOHN'S\") expire?",
+    "answer": "3/15/22",
+    "source": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 23,
+    "kind": "direct",
+    "question": "What law governs the Amendment n° 01 to the Global Maintenance Agreement ref. DS/C-3957/14 Issue 7 between AZUL LINHAS AÉREAS BRASILEIRAS S/A (\"Company\", \"AZUL\"); AVIONS DE TRANSPORT REGIONAL, G.I.E. (“Repairer”, “ATR”); AZUL LINHAS AÉREAS BRASILEIRAS and AVIONS DE TRANSPORT REGIONAL, G.I.E. (individually referred to as the “Party” or collectively as the “Parties”)?",
+    "answer": "New York",
+    "source": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2.txt, Governing Law"
+  },
+  {
+    "id": 24,
+    "kind": "direct",
+    "question": "On what date was the Amendment n° 01 to the Global Maintenance Agreement ref. DS/C-3957/14 Issue 7 between AZUL LINHAS AÉREAS BRASILEIRAS S/A (\"Company\", \"AZUL\"); AVIONS DE TRANSPORT REGIONAL, G.I.E. (“Repairer”, “ATR”); AZUL LINHAS AÉREAS BRASILEIRAS and AVIONS DE TRANSPORT REGIONAL, G.I.E. (individually referred to as the “Party” or collectively as the “Parties”) signed or dated?",
+    "answer": "1/6/16",
+    "source": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2.txt, Agreement Date"
+  },
+  {
+    "id": 25,
+    "kind": "direct",
+    "question": "What law governs the Multiple LINAC and Multi-Modality Distributor Agreement between ACCURAY INCORPORATED, (\"Accuray\"); SIEMENS AKTIENGESELLSCHAFT (\"Siemens\")?",
+    "answer": "Germany",
+    "source": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 26,
+    "kind": "direct",
+    "question": "On what date was the Multiple LINAC and Multi-Modality Distributor Agreement between ACCURAY INCORPORATED, (\"Accuray\"); SIEMENS AKTIENGESELLSCHAFT (\"Siemens\") signed or dated?",
+    "answer": "6/8/10",
+    "source": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 27,
+    "kind": "direct",
+    "question": "When does the Multiple LINAC and Multi-Modality Distributor Agreement between ACCURAY INCORPORATED, (\"Accuray\"); SIEMENS AKTIENGESELLSCHAFT (\"Siemens\") expire?",
+    "answer": "perpetual",
+    "source": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 28,
+    "kind": "direct",
+    "question": "What law governs the TRANSPORTATION SERVICE AGREEMENT Contract Identification FT18150 between Great Lakes Gas Transmission Limited Partnership (\"Transporter\"); ANR PIPELINE COMPANY (\"Shipper\")?",
+    "answer": "Michigan",
+    "source": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement.txt, Governing Law"
+  },
+  {
+    "id": 29,
+    "kind": "direct",
+    "question": "On what date was the TRANSPORTATION SERVICE AGREEMENT Contract Identification FT18150 between Great Lakes Gas Transmission Limited Partnership (\"Transporter\"); ANR PIPELINE COMPANY (\"Shipper\") signed or dated?",
+    "answer": "12/14/15",
+    "source": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 30,
+    "kind": "direct",
+    "question": "When does the TRANSPORTATION SERVICE AGREEMENT Contract Identification FT18150 between Great Lakes Gas Transmission Limited Partnership (\"Transporter\"); ANR PIPELINE COMPANY (\"Shipper\") expire?",
+    "answer": "10/31/17",
+    "source": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 31,
+    "kind": "direct",
+    "question": "What law governs the MANUFACTURING AND SUPPLY AGREEMENT between Pifzer Inc. (\"Manufacturer\"); Upjohn Inc. (\"Customer\")(\"Party\" or collectively as the \"Parties\")?",
+    "answer": "Delaware",
+    "source": "UpjohnInc_20200121_10-12G_EX-2.6_11948692_EX-2.6_Manufacturing Agreement_ Supply Agreement.txt, Governing Law"
+  },
+  {
+    "id": 32,
+    "kind": "direct",
+    "question": "On what date was the MANUFACTURING AND SUPPLY AGREEMENT between Pifzer Inc. (\"Manufacturer\"); Upjohn Inc. (\"Customer\")(\"Party\" or collectively as the \"Parties\") signed or dated?",
+    "answer": "]/[]/[][",
+    "source": "UpjohnInc_20200121_10-12G_EX-2.6_11948692_EX-2.6_Manufacturing Agreement_ Supply Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 33,
+    "kind": "direct",
+    "question": "What law governs the RECIPE DEVELOPMENT AGREEMENT between Reed's, Inc. (\"Reed's\"); BC Marketing Concepts Inc., dba Full Sail Brewing Company (\"Company\")?",
+    "answer": "New York",
+    "source": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement.txt, Governing Law"
+  },
+  {
+    "id": 34,
+    "kind": "direct",
+    "question": "On what date was the RECIPE DEVELOPMENT AGREEMENT between Reed's, Inc. (\"Reed's\"); BC Marketing Concepts Inc., dba Full Sail Brewing Company (\"Company\") signed or dated?",
+    "answer": "10/11/19",
+    "source": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 35,
+    "kind": "direct",
+    "question": "What law governs the SECOND AMENDMENT TO SERVICES AGREEMENT between FEDERATED INVESTMENT MANAGEMENT COMPANY (\"Adviser\"); FEDERATED ADVISORY SERVICES COMPANY (\"FASC\")?",
+    "answer": "Pennsylvania",
+    "source": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT_SECONDAMENDMENT.txt, Governing Law"
+  },
+  {
+    "id": 36,
+    "kind": "direct",
+    "question": "On what date was the SECOND AMENDMENT TO SERVICES AGREEMENT between FEDERATED INVESTMENT MANAGEMENT COMPANY (\"Adviser\"); FEDERATED ADVISORY SERVICES COMPANY (\"FASC\") signed or dated?",
+    "answer": "3/1/16",
+    "source": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT_SECONDAMENDMENT.txt, Agreement Date"
+  },
+  {
+    "id": 37,
+    "kind": "direct",
+    "question": "What law governs the DISTRIBUTOR AGREEMENT between Ingram Micro (\"Distributor\"); NETGEAR, Inc. (\"NETGEAR\")?",
+    "answer": "California",
+    "source": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 38,
+    "kind": "direct",
+    "question": "On what date was the DISTRIBUTOR AGREEMENT between Ingram Micro (\"Distributor\"); NETGEAR, Inc. (\"NETGEAR\") signed or dated?",
+    "answer": "11/5/96",
+    "source": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 39,
+    "kind": "direct",
+    "question": "When does the DISTRIBUTOR AGREEMENT between Ingram Micro (\"Distributor\"); NETGEAR, Inc. (\"NETGEAR\") expire?",
+    "answer": "3/1/97",
+    "source": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 40,
+    "kind": "direct",
+    "question": "What law governs the Endorsement Agreement between Kathy Ireland, Inc. (\"KI Inc.\"); Kathy Ireland (\"KI\"); The Sterling/Winters Co. (\"SW\"); Diplomat Ambassador Eyewear Group (\"Diplomat\")?",
+    "answer": "California",
+    "source": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 41,
+    "kind": "direct",
+    "question": "On what date was the Endorsement Agreement between Kathy Ireland, Inc. (\"KI Inc.\"); Kathy Ireland (\"KI\"); The Sterling/Winters Co. (\"SW\"); Diplomat Ambassador Eyewear Group (\"Diplomat\") signed or dated?",
+    "answer": "8/24/95",
+    "source": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 42,
+    "kind": "direct",
+    "question": "When does the Endorsement Agreement between Kathy Ireland, Inc. (\"KI Inc.\"); Kathy Ireland (\"KI\"); The Sterling/Winters Co. (\"SW\"); Diplomat Ambassador Eyewear Group (\"Diplomat\") expire?",
+    "answer": "1/30/00",
+    "source": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 43,
+    "kind": "direct",
+    "question": "What law governs the NETWORK AFFILIATE AGREEMENT between National CineMedia, LLC (“NCM”); Digital Cinema Destinations Corp.; “Network Affiliate” and with NCM, \"Party\" and collectively, the \"Parties?",
+    "answer": "Delaware",
+    "source": "DigitalCinemaDestinationsCorp_20111220_S-1_EX-10.10_7346719_EX-10.10_Affiliate Agreement.txt, Governing Law"
+  },
+  {
+    "id": 44,
+    "kind": "direct",
+    "question": "On what date was the NETWORK AFFILIATE AGREEMENT between National CineMedia, LLC (“NCM”); Digital Cinema Destinations Corp.; “Network Affiliate” and with NCM, \"Party\" and collectively, the \"Parties signed or dated?",
+    "answer": "3/14/11",
+    "source": "DigitalCinemaDestinationsCorp_20111220_S-1_EX-10.10_7346719_EX-10.10_Affiliate Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 45,
+    "kind": "direct",
+    "question": "When does the NETWORK AFFILIATE AGREEMENT between National CineMedia, LLC (“NCM”); Digital Cinema Destinations Corp.; “Network Affiliate” and with NCM, \"Party\" and collectively, the \"Parties expire?",
+    "answer": "[]/[]/2016",
+    "source": "DigitalCinemaDestinationsCorp_20111220_S-1_EX-10.10_7346719_EX-10.10_Affiliate Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 46,
+    "kind": "direct",
+    "question": "What law governs the SERVICES AGREEMENT between FEDERATED INVESTMENT MANAGEMENT COMPANY (\"Adviser\"); FEDERATED ADVISORY SERVICES COMPANY (\"FASC\")?",
+    "answer": "Pennsylvania",
+    "source": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 47,
+    "kind": "direct",
+    "question": "On what date was the SERVICES AGREEMENT between FEDERATED INVESTMENT MANAGEMENT COMPANY (\"Adviser\"); FEDERATED ADVISORY SERVICES COMPANY (\"FASC\") signed or dated?",
+    "answer": "1/1/04",
+    "source": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 48,
+    "kind": "direct",
+    "question": "What law governs the OPERATIONS AND MAINTENANCE AGREEMENT between MAGELLAN TERMINALS HOLDINGS, L.P. (\"Owner\"); OMEGA REFINING , LLC (\" Omega or Operator\"); Individually as \"Party\" and collectively as \"Parties?",
+    "answer": "Delaware",
+    "source": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 49,
+    "kind": "direct",
+    "question": "On what date was the OPERATIONS AND MAINTENANCE AGREEMENT between MAGELLAN TERMINALS HOLDINGS, L.P. (\"Owner\"); OMEGA REFINING , LLC (\" Omega or Operator\"); Individually as \"Party\" and collectively as \"Parties signed or dated?",
+    "answer": "11/3/10",
+    "source": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 50,
+    "kind": "direct",
+    "question": "What law governs the VIDEO-ON-DEMAND CONTENT LICENSE AGREEMENT between Rogers Cable Communications Inc. (\"Rogers\"); EuroMedia Holdings Corp. (\"Licensor\")?",
+    "answer": "Ontario, Canada",
+    "source": "EuromediaHoldingsCorp_20070215_10SB12G_EX-10.B(01)_525118_EX-10.B(01)_Content License Agreement.txt, Governing Law"
+  },
+  {
+    "id": 51,
+    "kind": "direct",
+    "question": "On what date was the VIDEO-ON-DEMAND CONTENT LICENSE AGREEMENT between Rogers Cable Communications Inc. (\"Rogers\"); EuroMedia Holdings Corp. (\"Licensor\") signed or dated?",
+    "answer": "7/11/06",
+    "source": "EuromediaHoldingsCorp_20070215_10SB12G_EX-10.B(01)_525118_EX-10.B(01)_Content License Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 52,
+    "kind": "direct",
+    "question": "When does the VIDEO-ON-DEMAND CONTENT LICENSE AGREEMENT between Rogers Cable Communications Inc. (\"Rogers\"); EuroMedia Holdings Corp. (\"Licensor\") expire?",
+    "answer": "6/30/10",
+    "source": "EuromediaHoldingsCorp_20070215_10SB12G_EX-10.B(01)_525118_EX-10.B(01)_Content License Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 53,
+    "kind": "direct",
+    "question": "What law governs the SOFTWARE LICENSE AND MAINTENANCE AGREEMENT between GARMAN ROUTING SYSTEMS, INC. (\"GARMAN\"); SPARKLING SPRING WATER GROUP LIMITED (\"SPARKLING\")?",
+    "answer": "Nova Scotia, Canada",
+    "source": "SPARKLINGSPRINGWATERHOLDINGSLTD_07_03_2002-EX-10.13-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 54,
+    "kind": "direct",
+    "question": "On what date was the SOFTWARE LICENSE AND MAINTENANCE AGREEMENT between GARMAN ROUTING SYSTEMS, INC. (\"GARMAN\"); SPARKLING SPRING WATER GROUP LIMITED (\"SPARKLING\") signed or dated?",
+    "answer": "05/[]/2000",
+    "source": "SPARKLINGSPRINGWATERHOLDINGSLTD_07_03_2002-EX-10.13-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 55,
+    "kind": "direct",
+    "question": "When does the SOFTWARE LICENSE AND MAINTENANCE AGREEMENT between GARMAN ROUTING SYSTEMS, INC. (\"GARMAN\"); SPARKLING SPRING WATER GROUP LIMITED (\"SPARKLING\") expire?",
+    "answer": "perpetual",
+    "source": "SPARKLINGSPRINGWATERHOLDINGSLTD_07_03_2002-EX-10.13-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 56,
+    "kind": "direct",
+    "question": "What law governs the Broker Dealer Marketing and Servicing Agreement for Variable Annuity Contracts between Principal Life Insurance Company (\"Issuer\", individually referred to as a “Party” and collectively with Distributor and Broker Dealer as the “Parties”); Princor Financial Services Corporation (\"Distributor\", individually referred to as a “Party” and collectively with Issuer and Broker Dealer as the “Parties”); ABC Company and its duly licensed insurance affiliates indicated on the signature page of this Agreement (collectively “Broker Dealer”, individually referred to as a “Party” and collectively with Issuer and Distributor as the “Parties”)?",
+    "answer": "Iowa",
+    "source": "Principal Life Insurance Company - Broker Dealer Marketing and Servicing Agreement.txt, Governing Law"
+  },
+  {
+    "id": 57,
+    "kind": "direct",
+    "question": "On what date was the Broker Dealer Marketing and Servicing Agreement for Variable Annuity Contracts between Principal Life Insurance Company (\"Issuer\", individually referred to as a “Party” and collectively with Distributor and Broker Dealer as the “Parties”); Princor Financial Services Corporation (\"Distributor\", individually referred to as a “Party” and collectively with Issuer and Broker Dealer as the “Parties”); ABC Company and its duly licensed insurance affiliates indicated on the signature page of this Agreement (collectively “Broker Dealer”, individually referred to as a “Party” and collectively with Issuer and Distributor as the “Parties”) signed or dated?",
+    "answer": "[]/[]/2013",
+    "source": "Principal Life Insurance Company - Broker Dealer Marketing and Servicing Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 58,
+    "kind": "direct",
+    "question": "What law governs the COLLABORATION AGREEMENT between BIOCEPT, INC. (“Biocept”); LIFE TECHNOLOGIES CORPORATION (“Life Technologies”)?",
+    "answer": "California",
+    "source": "BIOCEPTINC_08_19_2013-EX-10-COLLABORATION AGREEMENT.txt, Governing Law"
+  },
+  {
+    "id": 59,
+    "kind": "direct",
+    "question": "On what date was the COLLABORATION AGREEMENT between BIOCEPT, INC. (“Biocept”); LIFE TECHNOLOGIES CORPORATION (“Life Technologies”) signed or dated?",
+    "answer": "11/2/12",
+    "source": "BIOCEPTINC_08_19_2013-EX-10-COLLABORATION AGREEMENT.txt, Agreement Date"
+  },
+  {
+    "id": 60,
+    "kind": "direct",
+    "question": "When does the COLLABORATION AGREEMENT between BIOCEPT, INC. (“Biocept”); LIFE TECHNOLOGIES CORPORATION (“Life Technologies”) expire?",
+    "answer": "11/2/15",
+    "source": "BIOCEPTINC_08_19_2013-EX-10-COLLABORATION AGREEMENT.txt, Expiration Date"
+  },
+  {
+    "id": 61,
+    "kind": "direct",
+    "question": "What law governs the GAS TRANSPORTATION AGREEMENT between PennTex North Louisiana Operating, LLC (\"Transporter\"); MRD Operating LLC (“Customer”)(\"Parties\" and individually as a \"Party)?",
+    "answer": "Texas",
+    "source": "PenntexMidstreamPartnersLp_20150416_S-1A_EX-10.4_9042833_EX-10.4_Transportation Agreement.txt, Governing Law"
+  },
+  {
+    "id": 62,
+    "kind": "direct",
+    "question": "On what date was the GAS TRANSPORTATION AGREEMENT between PennTex North Louisiana Operating, LLC (\"Transporter\"); MRD Operating LLC (“Customer”)(\"Parties\" and individually as a \"Party) signed or dated?",
+    "answer": "4/14/15",
+    "source": "PenntexMidstreamPartnersLp_20150416_S-1A_EX-10.4_9042833_EX-10.4_Transportation Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 63,
+    "kind": "direct",
+    "question": "When does the GAS TRANSPORTATION AGREEMENT between PennTex North Louisiana Operating, LLC (\"Transporter\"); MRD Operating LLC (“Customer”)(\"Parties\" and individually as a \"Party) expire?",
+    "answer": "12/31/30",
+    "source": "PenntexMidstreamPartnersLp_20150416_S-1A_EX-10.4_9042833_EX-10.4_Transportation Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 64,
+    "kind": "direct",
+    "question": "What law governs the REAL ESTATE EDUCATION TRAINING PROGRAM DEVELOPMENT AGREEMENT between T&B Seminars, Inc. (\"T&B\"); Legacy Education Alliance Holdings, Inc. (\"LEA\")?",
+    "answer": "New York",
+    "source": "LegacyEducationAllianceInc_20200330_10-K_EX-10.18_12090678_EX-10.18_Development Agreement.txt, Governing Law"
+  },
+  {
+    "id": 65,
+    "kind": "direct",
+    "question": "On what date was the REAL ESTATE EDUCATION TRAINING PROGRAM DEVELOPMENT AGREEMENT between T&B Seminars, Inc. (\"T&B\"); Legacy Education Alliance Holdings, Inc. (\"LEA\") signed or dated?",
+    "answer": "12/23/19",
+    "source": "LegacyEducationAllianceInc_20200330_10-K_EX-10.18_12090678_EX-10.18_Development Agreement.txt, Agreement Date"
+  },
+  {
+    "id": 66,
+    "kind": "direct",
+    "question": "When does the REAL ESTATE EDUCATION TRAINING PROGRAM DEVELOPMENT AGREEMENT between T&B Seminars, Inc. (\"T&B\"); Legacy Education Alliance Holdings, Inc. (\"LEA\") expire?",
+    "answer": "12/23/24",
+    "source": "LegacyEducationAllianceInc_20200330_10-K_EX-10.18_12090678_EX-10.18_Development Agreement.txt, Expiration Date"
+  },
+  {
+    "id": 67,
+    "kind": "not-found",
+    "question": "How do I configure rate limiting on a FastAPI route?",
+    "answer": "Not found in these documents.",
+    "source": "none"
+  },
+  {
+    "id": 68,
+    "kind": "not-found",
+    "question": "What is the cafeteria menu for next Tuesday?",
+    "answer": "Not found in these documents.",
+    "source": "none"
+  },
+  {
+    "id": 69,
+    "kind": "not-found",
+    "question": "Which database index type does the system use for vector search?",
+    "answer": "Not found in these documents.",
+    "source": "none"
+  }
+]
