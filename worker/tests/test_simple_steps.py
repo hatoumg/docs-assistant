@@ -12,7 +12,7 @@ index_main = import_module("1_indexing.main")
 retrieval_main = import_module("2_retrieval.main")
 generate_step = import_module("3_generation.2_generate")
 eval_main = import_module("4_evaluation.main")
-load_documents = load("1_indexing.1_load", "load_documents")
+load_documents, load_file = load("1_indexing.1_load", "load_documents", "load_file")
 clean_text = load("1_indexing.2_clean", "clean_text")
 split_documents, split_text = load("1_indexing.3_chunk", "split_documents", "split_text")
 transform_query = load("2_retrieval.1_query", "transform_query")
@@ -31,6 +31,30 @@ def chunk(id, name="a.md", position=0, text="text", score=0.5):
     return {"id": id, "name": name, "source": "s", "position": position, "text": text, "score": score}
 
 
+def make_pdf(pages):
+    """A tiny but valid PDF with one line of text per page (pages=[] gives a PDF with no text)."""
+    objects = ["<< /Type /Catalog /Pages 2 0 R >>"]
+    kids = " ".join(f"{4 + 2 * i} 0 R" for i in range(len(pages)))
+    objects.append(f"<< /Type /Pages /Kids [{kids}] /Count {len(pages)} >>")
+    objects.append("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>")
+    for i, text in enumerate(pages):
+        stream = f"BT /F1 12 Tf 72 720 Td ({text}) Tj ET"
+        objects.append(
+            f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents {5 + 2 * i} 0 R "
+            "/Resources << /Font << /F1 3 0 R >> >> >>"
+        )
+        objects.append(f"<< /Length {len(stream)} >>\nstream\n{stream}\nendstream")
+    out, offsets = b"%PDF-1.4\n", []
+    for number, body in enumerate(objects, start=1):
+        offsets.append(len(out))
+        out += f"{number} 0 obj\n{body}\nendobj\n".encode()
+    xref = len(out)
+    out += f"xref\n0 {len(objects) + 1}\n0000000000 65535 f \n".encode()
+    out += b"".join(f"{offset:010d} 00000 n \n".encode() for offset in offsets)
+    out += f"trailer\n<< /Size {len(objects) + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n".encode()
+    return out
+
+
 # ----- Phase 1 -----
 
 
@@ -39,10 +63,30 @@ def test_load_skips_unwanted_files(tmp_path):
     (tmp_path / "b.txt").write_text("beta")
     (tmp_path / "SOURCE.md").write_text("notes")
     (tmp_path / "LICENSE-MIT.txt").write_text("licence")
-    (tmp_path / "c.pdf").write_bytes(b"%PDF")
+    (tmp_path / "scan.pdf").write_bytes(make_pdf([]))  # no text inside, so it is skipped
     docs = load_documents(tmp_path)
     assert [d["name"] for d in docs] == ["a.md", "b.txt"]
     assert docs[0]["source"] == tmp_path.name and len(docs[0]["hash"]) == 64
+
+
+def test_pdf_text_is_read_page_by_page(tmp_path):
+    (tmp_path / "terms.pdf").write_bytes(make_pdf(["Notice is 30 days", "Fees are due monthly"]))
+    docs = load_documents(tmp_path)
+    assert [d["name"] for d in docs] == ["terms.pdf"]
+    assert "Notice is 30 days" in docs[0]["text"] and "Fees are due monthly" in docs[0]["text"]
+    assert load_file(tmp_path / "terms.pdf", "terms.pdf", "h")["text"] == docs[0]["text"]
+
+
+def test_a_pdf_without_text_or_a_broken_one_gives_a_clear_error(tmp_path):
+    (tmp_path / "scan.pdf").write_bytes(make_pdf([]))
+    (tmp_path / "broken.pdf").write_bytes(b"%PDF-1.4 not really")
+    for name, words in (("scan.pdf", "no selectable text"), ("broken.pdf", "could not be read")):
+        try:
+            load_file(tmp_path / name, name, "h")
+        except ValueError as error:
+            assert words in str(error)
+        else:
+            raise AssertionError(f"{name} should have been refused")
 
 
 def test_clean_text_removes_noise():
@@ -112,7 +156,7 @@ def test_rerank_changes_nothing():
 def test_retrieve_runs_search_for_each_query(monkeypatch):
     seen = []
     monkeypatch.setattr(retrieval_main, "transform_query", lambda q: [q, q + " again"])
-    monkeypatch.setattr(retrieval_main, "search_chunks", lambda q, k, sources: seen.append((q, sources)) or [chunk(len(seen), score=1 / len(seen))])
+    monkeypatch.setattr(retrieval_main, "search_chunks", lambda q, k, sources, scope=None: seen.append((q, sources)) or [chunk(len(seen), score=1 / len(seen))])
     result = retrieval_main.retrieve("cors", sources=["s"], k=5)
     assert seen == [("cors", ["s"]), ("cors again", ["s"])] and len(result) == 2
 

@@ -17,13 +17,13 @@ merge_results = load("2_retrieval.3_merge", "merge_results")
 rerank = load("2_retrieval.4_rerank", "rerank")
 
 
-def retrieve(question, sources=None, k=TOP_K):
-    """Returns the best chunks for the question."""
+def retrieve(question, sources=None, k=TOP_K, scope=None):
+    """Returns the best chunks for the question. scope limits the search to one user's documents (see 2_search.py)."""
     # Step 1: Prepare the question (one or more versions)
     queries = transform_query(question)
 
     # Step 2: Search the database with each version
-    result_lists = [search_chunks(query, k, sources) for query in queries]
+    result_lists = [search_chunks(query, k, sources, scope) for query in queries]
 
     # Step 3: Combine the result lists into one
     chunks = merge_results(result_lists, k)

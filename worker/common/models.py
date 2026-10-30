@@ -7,33 +7,22 @@
 
 Behind them, the other files in this folder do the unglamorous work: wait when a free-tier limit is hit (throttle.py),
 retry (retry.py), remember answers on disk (cache.py), and switch between providers (providers.py, fallback.py).
-Which service answers is chosen in .env (LLM_PROVIDER). Embeddings always use Gemini.
+Which service answers is chosen in .env (LLM_PROVIDER). Embeddings always run locally through Ollama (ollama.py).
 """
-from common.cache import BudgetedLLM, CachedEmbedder, CachedLLM
+from common.cache import BudgetedLLM, CachedLLM
 from common.fallback import FallbackLLM
-from common.gemini import GeminiEmbedder
+from common.ollama import OllamaEmbedder
 from common.providers import create_provider_llm, model_for, tokens_per_minute_for
 from common.settings import load_settings
 from common.throttle import ThrottledLLM
-from common.usage import UsageMeter
 
 
-def build_embedder(settings, usage):
-    """Gemini embeddings, remembered on disk so a repeated text is never embedded twice."""
-    gemini = GeminiEmbedder(
-        settings.require_api_key(),
-        settings.embed_model,
-        settings.embed_dim,
-        settings.embed_batch_size,
-        settings.embed_pause_seconds,
-        settings.max_retries,
-        usage,
-        settings.embed_tokens_per_minute,
-    )
-    return CachedEmbedder(gemini, settings.cache_dir / "embeddings")
+def build_embedder(settings):
+    """Embeddings from the Ollama program running on this computer: free, with no daily limit."""
+    return OllamaEmbedder(settings.ollama_url, settings.embed_model, settings.embed_dim)
 
 
-def build_llm(settings, usage, folder, model_override="", factory=create_provider_llm):
+def build_llm(settings, folder, model_override="", factory=create_provider_llm):
     """The answering model: the chosen provider, then any fallbacks.
 
     Each one is wrapped so that it waits under free-tier token limits (ThrottledLLM), stops at a daily call cap
@@ -42,7 +31,7 @@ def build_llm(settings, usage, folder, model_override="", factory=create_provide
     models = []
     for position, provider in enumerate([settings.llm_provider, *settings.llm_fallbacks]):
         model = model_for(provider, settings, model_override if position == 0 else "")
-        raw = factory(provider, model, settings, usage)
+        raw = factory(provider, model, settings)
         limit = tokens_per_minute_for(provider, settings)
         if limit:
             raw = ThrottledLLM(raw, limit)
@@ -60,11 +49,10 @@ def _get_clients():
     global _clients
     if _clients is None:
         settings = load_settings()
-        usage = UsageMeter()
         _clients = {
-            "embedder": build_embedder(settings, usage),
-            "llm": build_llm(settings, usage, "llm"),
-            "judge": build_llm(settings, usage, "judge", settings.judge_model),
+            "embedder": build_embedder(settings),
+            "llm": build_llm(settings, "llm"),
+            "judge": build_llm(settings, "judge", settings.judge_model),
         }
     return _clients
 

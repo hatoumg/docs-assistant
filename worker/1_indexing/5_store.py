@@ -52,3 +52,32 @@ def save_chunks(chunks, vectors):
     ).fetchone()[0]
     connection.close()
     print(f"The '{COLLECTION}' index now holds {total_docs} documents and {total_chunks} chunks")
+
+
+def save_document_chunks(document_id, chunks, vectors):
+    """Web app: save the chunks of a document whose row already exists, then mark it ready.
+
+    The document becomes searchable only when all its chunks are saved (one transaction).
+    """
+    connection = connect()
+    rows = [
+        (document_id, chunk["position"], chunk["text"], np.array(vector, dtype=np.float32))
+        for chunk, vector in zip(chunks, vectors)
+    ]
+    with connection.transaction():
+        connection.execute("DELETE FROM chunks WHERE document_id = %s", (document_id,))  # safe to run again
+        connection.cursor().executemany(
+            "INSERT INTO chunks (document_id, position, text, embedding) VALUES (%s, %s, %s, %s)", rows
+        )
+        connection.execute(
+            "UPDATE documents SET status = 'ready', error = NULL, collection = %s WHERE id = %s", (COLLECTION, document_id)
+        )
+    connection.close()
+    print(f"  saved document {document_id}: {len(rows)} chunks")
+
+
+def mark_failed(document_id, message):
+    """Web app: record why a document could not be indexed, so the user can see it."""
+    connection = connect()
+    connection.execute("UPDATE documents SET status = 'failed', error = %s WHERE id = %s", (message[:300], document_id))
+    connection.close()

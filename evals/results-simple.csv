@@ -1,0 +1,21 @@
+time,dataset,id,kind,rank,hit,reciprocal_rank,found,correctness,faithfulness,citation,passed,question
+2026-10-28T16:02:41,technical.json,1,direct,1,True,1.0,,,,,,"If you request /items/?skip=20 and the function declares skip=0 and limit=10 as defaults, what values does the function receive?"
+2026-10-28T16:02:41,technical.json,2,direct,1,True,1.0,,,,,,Which values of a bool query parameter are converted to False?
+2026-10-28T16:02:41,technical.json,3,direct,1,True,1.0,,,,,,What happens if a bool query parameter is given as ?short=maybe?
+2026-10-28T16:02:41,technical.json,4,direct,1,True,1.0,,,,,,What is the default max_age of CORSMiddleware?
+2026-10-28T16:02:41,technical.json,5,direct,1,True,1.0,,,,,,Which HTTP methods does CORSMiddleware allow by default?
+2026-10-28T16:02:41,technical.json,6,multi-passage,1,True,1.0,,,,,,"Can you use the wildcard '*' for allowed origins when cookies or Authorization headers must work, and what should you do instead?"
+2026-10-28T16:02:41,technical.json,7,direct,1,True,1.0,,,,,,"Where do you declare status_code, and which status code is commonly used after creating a new record?"
+2026-10-28T16:02:41,technical.json,8,direct,1,True,1.0,,,,,,"How do you add a function to run after the response is sent, and which similarly named class should you avoid?"
+2026-10-28T16:02:41,technical.json,9,direct,1,True,1.0,,,,,,"What must be installed to use TestClient, and should test functions be async?"
+2026-10-28T16:02:41,technical.json,10,multi-passage,1,True,1.0,,,,,,"What does the 204 status code mean, and what does FastAPI do in its generated docs for responses with such codes?"
+2026-10-28T16:04:50,technical.json,1,direct,1,True,1.0,,,,,,"If you request /items/?skip=20 and the function declares skip=0 and limit=10 as defaults, what values does the function receive?"
+2026-10-28T16:04:50,technical.json,2,direct,1,True,1.0,,,,,,Which values of a bool query parameter are converted to False?
+2026-10-28T16:04:50,technical.json,3,direct,1,True,1.0,,,,,,What happens if a bool query parameter is given as ?short=maybe?
+2026-10-28T16:04:50,technical.json,4,direct,1,True,1.0,,,,,,What is the default max_age of CORSMiddleware?
+2026-10-28T16:04:50,technical.json,5,direct,1,True,1.0,,,,,,Which HTTP methods does CORSMiddleware allow by default?
+2026-10-28T16:04:50,technical.json,6,multi-passage,1,True,1.0,,,,,,"Can you use the wildcard '*' for allowed origins when cookies or Authorization headers must work, and what should you do instead?"
+2026-10-28T16:04:50,technical.json,7,direct,1,True,1.0,,,,,,"Where do you declare status_code, and which status code is commonly used after creating a new record?"
+2026-10-28T16:04:50,technical.json,8,direct,1,True,1.0,,,,,,"How do you add a function to run after the response is sent, and which similarly named class should you avoid?"
+2026-10-28T16:04:50,technical.json,9,direct,1,True,1.0,,,,,,"What must be installed to use TestClient, and should test functions be async?"
+2026-10-28T16:04:50,technical.json,10,multi-passage,1,True,1.0,,,,,,"What does the 204 status code mean, and what does FastAPI do in its generated docs for responses with such codes?"

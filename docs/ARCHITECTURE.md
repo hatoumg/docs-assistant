@@ -26,13 +26,16 @@ what it does. There are no interfaces to look up and no framework to learn.
 means editing only `1_query.py`. No other file needs to change, which keeps experiments cheap and results comparable.
 
 **The AI services sit behind four functions** (`embed_texts`, `embed_query`, `ask_llm`, `ask_judge` in `common/models.py`).
-The steps never know whether Gemini or Groq answered. Switching provider is a line in `.env`.
+The steps never know which service answered. Embeddings run on your own computer through Ollama (`common/ollama.py`),
+so they have no key and no daily limit. Answers come from Groq, Gemini or another provider, chosen with a line in `.env`.
 
 **Free-tier protection is separate from the steps.** Waiting for rate limits (`throttle.py`), retrying (`retry.py`),
-remembering answers on disk (`cache.py`) and capping daily calls are wrappers around the AI clients, so the steps stay short.
+remembering answers on disk (`cache.py`) and capping daily calls are wrappers around the answering models, so the steps stay short.
+Embeddings need none of this because they run locally.
 
 **Collections.** Documents are stored under a collection name (`COLLECTION` in `common/config.py`). A new chunking method
-gets a new collection name, so two indexes of the same documents can sit side by side. `--source` searches one dataset at a time.
+or a new embedding model gets a new collection name, so two indexes of the same documents can sit side by side. Vectors
+from different models must never share a collection, because they cannot be compared. `--source` searches one dataset at a time.
 
 ## What was tried and replaced
 
@@ -47,8 +50,8 @@ same boundaries.
 
 - **Query decomposition** (splitting a question into dependent sub-questions) needs more than the straight pipeline in
   `2_retrieval/main.py`. It would be a different version of `retrieve()`.
-- **Changing the embedding model** changes the vector size, which is fixed at 768 in the database table. It needs a new
-  table or migration, and re-embedding everything.
+- **Changing the embedding model** means re-embedding everything under a new collection name. A model that does not make
+  768 numbers per chunk also needs a migration, because the vector size is fixed at 768 in the database table.
 - **The judge is an AI model**, so scores are noisy. Compare methods over the whole question set, not single questions, and
   run the held-out test questions once at the end.
 - **Keyword search is not built yet.** `2_retrieval/2_search.py` does vector search only. Hybrid search will need a
