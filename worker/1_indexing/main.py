@@ -7,7 +7,9 @@ Run from the worker folder:
 Running it again is safe: documents that are already stored are skipped.
 """
 import argparse
+from pathlib import Path
 
+from common.convert import CONVERTED_SUFFIX, CONVERTIBLE
 from common.loader import load
 
 # The step files start with a number, so they are imported with load() instead of 'from ... import'.
@@ -45,7 +47,12 @@ def index_folder(folder):
 
 def index_upload(document_id, path, name, file_hash):
     """Index one file uploaded through the web app. Same steps as above; the database row already exists."""
-    documents = clean_documents([load_file(path, name, file_hash)])
+    document = load_file(path, name, file_hash)
+    if Path(path).suffix.lower() in CONVERTIBLE:
+        # Keep the converted text next to the original, so the website can show "the text version" of a PDF or Word file.
+        # The API reads (and deletes) this same name: keep CONVERTED_SUFFIX in api/src/storage.ts the same.
+        Path(str(path) + CONVERTED_SUFFIX).write_text(document["text"], encoding="utf-8")
+    documents = clean_documents([document])
     chunks = split_documents(documents)
     if not chunks:
         raise ValueError("The file has no text to index.")

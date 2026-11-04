@@ -46,5 +46,12 @@ export async function fileText(id: number): Promise<string> {
   if (!response.ok) throw new ApiError(response.status, "Could not open this file.");
   return response.text();
 }
+/** The text of a file as it was read for searching: the file itself for .md/.txt, the converted text for PDF and Word. */
+export async function fileTextVersion(id: number): Promise<string> {
+  const response = await fetch(`/backend/files/${id}/text`, { cache: "no-store" });
+  if (response.status === 404) throw new ApiError(404, "The text version is not ready yet. It appears once the file has been read.");
+  if (!response.ok) throw new ApiError(response.status, "Could not open this file.");
+  return response.text();
+}
 export const askQuestion = (question: string, folderId: string | null) =>
   call<ChatResult>("chat", json("POST", folderId ? { question, folderId } : { question }));

@@ -92,3 +92,7 @@ input:focus, textarea:focus, .btn:focus-visible { outline: 2px solid var(--accen
 .pdf-hits { position: absolute; inset: 0; pointer-events: none; }
 .pdf-hit { position: absolute; background: rgba(255, 208, 0, .45); border-radius: 2px; mix-blend-mode: multiply; }
 mark.hit { background: rgba(255, 208, 0, .5); color: inherit; padding: 0; border-radius: 2px; }
+
+.tabs { display: flex; gap: .3rem; margin-bottom: .6rem; }
+.tab { font: inherit; padding: .25rem .8rem; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; }
+.tab.active { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }

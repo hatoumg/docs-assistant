@@ -7,4 +7,6 @@ pytest
 starlette
 uvicorn
 httpx
-pypdf
+pdfplumber
+markitdown[docx]
+python-docx  # only the tests use it, to build sample Word files

@@ -2,7 +2,7 @@ import { HttpError, badRequest, notFound } from "./errors.js";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const CONTROL_CHARACTERS = /[\u0000-\u001f\u007f]/;
-export const ALLOWED_EXTENSIONS = [".md", ".txt", ".pdf"];
+export const ALLOWED_EXTENSIONS = [".md", ".txt", ".pdf", ".docx"];
 
 /** An id in a web address. A malformed one is "not found", the same as an id that does not exist. */
 export function parseUuid(value: unknown, what = "Item"): string {

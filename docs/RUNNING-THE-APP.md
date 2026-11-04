@@ -35,12 +35,26 @@ Browser ─▶ web (Next.js, :3000) ─▶ api (TypeScript, :4000) ─▶ worker
 | 2 | `api` | `npm run dev` |
 | 3 | `web` | `npm run dev` |
 
-Then open http://localhost:3000, create an account, make a folder, upload `.md`, `.txt` or `.pdf` files into it (PDFs need selectable text; scanned images are not read yet) and ask a question.
+Then open http://localhost:3000, create an account, make a folder, upload `.md`, `.txt`, `.pdf` or `.docx` files into it (PDFs need selectable text; scanned images are not read yet) and ask a question.
 A file shows "Reading…" until it has been split and embedded, then "Ready".
 
 ## What the chat searches
 
 The chat searches the folder you are in **and every folder inside it, at any depth**. At the top level ("All folders") it searches all of your files. Other people's files are never searched.
+
+## How PDF and Word files are read
+
+Before a PDF or Word file is searched it is converted to clean, standard text: `#` headings, one paragraph per block with a blank line between paragraphs, `-` list items and `|` tables. Page numbers, repeated headers and footers are removed, lines are joined into paragraphs and words split by a hyphen at the end of a line are put back together. The converted text is saved next to the file and shown under **Text version** when you open it.
+
+To check how a file converts without uploading it:
+
+```
+cd worker
+python -m common.convert path\to\file.pdf
+python -m common.convert path\to\file.docx -o result.md
+```
+
+PDFs with a simple layout (reports, contracts, papers, slides) convert well. Heavily designed pages (game manuals, brochures, posters) and scanned pages convert poorly or not at all.
 
 ## Seeing where an answer came from
 

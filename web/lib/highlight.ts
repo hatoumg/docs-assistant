@@ -21,13 +21,13 @@ interface Stream {
   offset: number[];
 }
 
-function toStream(pieces: string[]): Stream {
+function toStream(pieces: string[], ignore = ""): Stream {
   const stream: Stream = { text: "", piece: [], offset: [] };
   pieces.forEach((piece, p) => {
     let offset = 0;
     for (const char of piece) {
       for (const c of char.normalize("NFKC").toLowerCase()) {
-        if (!/[\s\-\u00ad\u2010\u2011]/.test(c)) {
+        if (!/[\s\-\u00ad\u2010\u2011]/.test(c) && !ignore.includes(c)) {
           stream.text += c;
           stream.piece.push(p);
           stream.offset.push(offset);
@@ -39,15 +39,20 @@ function toStream(pieces: string[]): Stream {
   return stream;
 }
 
-const normalise = (text: string) => toStream([text]).text;
+const normalise = (text: string, ignore = "") => toStream([text], ignore).text;
 
 /** How much of the start and end to match when the whole passage cannot be found exactly. */
 const EDGE = 40;
 
-export function findPassage(pieces: string[], passage: string): Match | null {
-  const needle = normalise(passage);
+/**
+ * `markdown`: the passage comes from converted text, which has Markdown marks (# headings, | table cells) that are not in the
+ * original PDF, so those marks are ignored on both sides.
+ */
+export function findPassage(pieces: string[], passage: string, options: { markdown?: boolean } = {}): Match | null {
+  const ignore = options.markdown ? "#|" : "";
+  const needle = normalise(passage, ignore);
   if (needle.length < 8) return null;
-  const hay = toStream(pieces);
+  const hay = toStream(pieces, ignore);
 
   let from = hay.text.indexOf(needle);
   let to = from + needle.length;

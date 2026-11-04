@@ -2,33 +2,23 @@
 import hashlib
 from pathlib import Path
 
-from pypdf import PdfReader
-from pypdf.errors import PyPdfError
+from common.convert import CONVERTIBLE, convert
 
-FILE_TYPES = (".md", ".txt", ".pdf")
+FILE_TYPES = (".md", ".txt") + CONVERTIBLE
 SKIP_NAMES = ("SOURCE.md", "README.md")
 
 
 def read_text(path, raw=None):
-    """The text inside one file. Text files are decoded; for a PDF the text of every page is joined together."""
+    """The text inside one file. Text files are decoded as they are; PDF and Word files are converted to clean standard text
+    (headings, paragraphs, lists and tables) by common/convert.py. Raises ValueError with a message if a file cannot be read."""
     path = Path(path)
-    if path.suffix.lower() != ".pdf":
-        return (raw if raw is not None else path.read_bytes()).decode("utf-8", errors="replace")
-    try:
-        reader = PdfReader(path)
-        if reader.is_encrypted and not reader.decrypt(""):
-            raise ValueError("This PDF is password protected.")
-        pages = [(page.extract_text() or "").strip() for page in reader.pages]
-    except PyPdfError as error:
-        raise ValueError(f"This PDF could not be read ({error}).") from None
-    text = "\n\n".join(page for page in pages if page)
-    if not text.strip():
-        raise ValueError("This PDF has no selectable text (it may be a scan). Scanned pages need OCR, which is not supported yet.")
-    return text
+    if path.suffix.lower() in CONVERTIBLE:
+        return convert(path).text
+    return (raw if raw is not None else path.read_bytes()).decode("utf-8", errors="replace")
 
 
 def load_documents(folder):
-    """Read every .md, .txt and .pdf file in the folder. Returns a list of documents.
+    """Read every .md, .txt, .pdf and .docx file in the folder. Returns a list of documents.
 
     Each document is a dictionary:
         name    the file name

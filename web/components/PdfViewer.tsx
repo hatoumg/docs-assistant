@@ -69,7 +69,7 @@ export function PdfViewer({ fileId, highlight, onStatus }: { fileId: number; hig
       }
 
       // 2. Where is the passage?
-      const match = highlight ? findPassage(pieces, highlight) : null;
+      const match = highlight ? findPassage(pieces, highlight, { markdown: true }) : null;
       const parts = match ? matchParts(pieces, match) : [];
       const pageOf = (piece: number) => pages.find((p) => piece >= p.firstPiece && piece < p.firstPiece + p.pieceCount);
       const firstPage = parts.length > 0 ? pageOf(parts[0]!.piece) : undefined;

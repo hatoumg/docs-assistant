@@ -2,6 +2,9 @@ import { randomUUID } from "node:crypto";
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
+/** The converted text of a PDF or Word file is saved next to it with this ending (the Python service writes it). */
+export const CONVERTED_SUFFIX = ".converted.md";
+
 /** Uploaded files live on disk under one folder, in a sub-folder per user, with random names. */
 
 function resolveInside(root: string, relative: string): string {
@@ -23,12 +26,17 @@ export async function readUpload(root: string, relative: string): Promise<Buffer
   return readFile(resolveInside(root, relative));
 }
 
-/** Best effort: a missing file is not an error. */
+export async function readConverted(root: string, relative: string): Promise<Buffer> {
+  return readFile(resolveInside(root, relative + CONVERTED_SUFFIX));
+}
+
+/** Best effort: a missing file is not an error. The converted text beside a file is removed with it. */
 export async function removeUploads(root: string, relatives: string[]): Promise<void> {
   await Promise.all(
     relatives.map(async (relative) => {
       try {
         await rm(resolveInside(root, relative), { force: true });
+        await rm(resolveInside(root, relative + CONVERTED_SUFFIX), { force: true });
       } catch (error) {
         console.error("Could not remove an uploaded file:", relative, error);
       }

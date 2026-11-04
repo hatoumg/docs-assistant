@@ -4,7 +4,7 @@ import { isUniqueViolation, type Db } from "../db.js";
 import { HttpError, notFound } from "../errors.js";
 import { json, requireUser, type Ctx, type Reply, type RouteSpec } from "../http.js";
 import type { RagClient } from "../ragClient.js";
-import { readUpload, removeUploads, saveUpload } from "../storage.js";
+import { readConverted, readUpload, removeUploads, saveUpload } from "../storage.js";
 import { countFiles, deleteFile, getFile, insertFile, markFailed, type FileRow } from "../store/files.js";
 import { getFolder } from "../store/folders.js";
 import { cleanFileName, parseId, parseUuid } from "../validate.js";
@@ -52,6 +52,9 @@ export function fileRoutes(db: Db, rag: RagClient, limits: UploadLimits): RouteS
         if (extension === ".pdf") {
           // A real PDF starts with "%PDF-" (the PDF spec allows a little junk before it, so look in the first 1024 bytes).
           if (!bytes.subarray(0, 1024).includes("%PDF-")) throw new HttpError(415, "not_pdf", "This file is not a valid PDF.");
+        } else if (extension === ".docx") {
+          // A .docx is a zip file, and every zip starts with "PK".
+          if (bytes[0] !== 0x50 || bytes[1] !== 0x4b) throw new HttpError(415, "not_docx", "This file is not a valid Word (.docx) file. Old .doc files are not supported.");
         } else {
           if (bytes.toString("utf8").trim() === "") throw new HttpError(400, "empty_file", "The file is empty.");
           if (bytes.includes(0)) throw new HttpError(415, "not_text", "This looks like a binary file. Upload plain text (.md or .txt).");
@@ -109,6 +112,34 @@ export function fileRoutes(db: Db, rag: RagClient, limits: UploadLimits): RouteS
         }
         if (file.name.toLowerCase().endsWith(".pdf")) {
           return { status: 200, raw: bytes, headers: { "content-type": "application/pdf", "content-disposition": "inline" } };
+        }
+        if (file.name.toLowerCase().endsWith(".docx")) {
+          return {
+            status: 200,
+            raw: bytes,
+            headers: {
+              "content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "content-disposition": `attachment; filename*=UTF-8''${encodeURIComponent(file.name)}`,
+            },
+          };
+        }
+        return { status: 200, text: bytes.toString("utf8"), headers: { "content-type": "text/plain; charset=utf-8" } };
+      },
+    },
+    {
+      // The text of a file as it was read for searching: the file itself for .md and .txt, the converted text for PDF and Word.
+      method: "GET",
+      path: "/api/files/:id/text",
+      auth: "user",
+      async handle(ctx): Promise<Reply> {
+        const file = await ownedFile(ctx);
+        if (!file.storage_path) throw notFound("File");
+        const plain = /\.(md|txt)$/i.test(file.name);
+        let bytes: Buffer;
+        try {
+          bytes = plain ? await readUpload(limits.uploadDir, file.storage_path) : await readConverted(limits.uploadDir, file.storage_path);
+        } catch {
+          throw new HttpError(404, "not_ready", "The text version is not ready yet.");
         }
         return { status: 200, text: bytes.toString("utf8"), headers: { "content-type": "text/plain; charset=utf-8" } };
       },

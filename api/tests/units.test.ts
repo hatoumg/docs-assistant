@@ -141,9 +141,10 @@ test("names are trimmed and refuse slashes and control characters", () => {
   assert.throws(() => cleanName(5, "Name"), { status: 400 });
 });
 
-test("only .md, .txt and .pdf file names are accepted, in any capitalisation", () => {
+test("only .md, .txt, .pdf and .docx file names are accepted, in any capitalisation", () => {
   assert.deepEqual(cleanFileName("Notes.MD"), { name: "Notes.MD", extension: ".md" });
   assert.deepEqual(cleanFileName("a.b.txt"), { name: "a.b.txt", extension: ".txt" });
   assert.deepEqual(cleanFileName("Report.PDF"), { name: "Report.PDF", extension: ".pdf" });
-  for (const bad of ["a", ".md", "a.md.exe", "a.docx"]) assert.throws(() => cleanFileName(bad), { status: 415 });
+  assert.deepEqual(cleanFileName("Plan.Docx"), { name: "Plan.Docx", extension: ".docx" });
+  for (const bad of ["a", ".md", "a.md.exe", "a.xlsx", "a.doc"]) assert.throws(() => cleanFileName(bad), { status: 415 });
 });

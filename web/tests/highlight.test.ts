@@ -32,3 +32,11 @@ test("returns nothing when the passage is not there, or is too short to be meani
   assert.equal(findPassage([doc], "completely different words about something else"), null);
   assert.equal(findPassage([doc], "the"), null);
 });
+
+test("Markdown marks in a passage from converted text do not stop it matching the original PDF text", () => {
+  const pieces = ["Termination ", "The notice period is", "30 days for both sides.", "Fees are due monthly."];
+  const passage = "## Termination\n\nThe notice period is 30 days for both sides.\n\n| Plan | Price |";
+  assert.equal(findPassage(pieces, passage), null);
+  const match = findPassage(pieces, "## Termination\n\nThe notice period is 30 days for both sides.", { markdown: true })!;
+  assert.deepEqual([match.start.piece, match.end.piece], [0, 2]);
+});

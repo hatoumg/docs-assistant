@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access, readdir } from "node:fs/promises";
+import { access, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { after, before, describe, test } from "node:test";
 
@@ -224,7 +224,9 @@ describe("files", () => {
   test("only .md and .txt, text only, not empty, not too big", async () => {
     const { token } = await app.register("files3@example.com");
     const folder = await app.folder(token, "Docs");
-    assert.equal((await app.upload(token, folder, "a.docx")).status, 415);
+    assert.equal((await app.upload(token, folder, "a.xlsx")).status, 415);
+    assert.equal((await app.upload(token, folder, "a.doc")).status, 415);
+    assert.equal((await app.upload(token, folder, "fake.docx", "not a zip")).status, 415);
     assert.equal((await app.upload(token, folder, "fake.pdf", "just text, not a pdf")).status, 415);
     assert.equal((await app.upload(token, folder, "noextension")).status, 415);
     assert.equal((await app.upload(token, folder, "../evil.md")).status, 400);
@@ -248,6 +250,36 @@ describe("files", () => {
     const content = await app.call("GET", `/api/files/${uploaded.json.file.id}/content`, { token });
     assert.equal(content.status, 200);
     assert.equal(content.headers.get("content-type"), "application/pdf");
+  });
+
+  test("a Word file is accepted, and its converted text is served and removed with it", async () => {
+    const { id, token } = await app.register("docx1@example.com");
+    const folder = await app.folder(token, "Docs");
+    const zipLike = Buffer.concat([Buffer.from("PK\x03\x04"), Buffer.from([0, 1, 2, 3])]);
+    const uploaded = await app.upload(token, folder, "plan.docx", zipLike);
+    assert.equal(uploaded.status, 202);
+    const fileId = uploaded.json.file.id;
+    // no converted text yet: the Python service writes it while indexing
+    assert.equal((await app.call("GET", `/api/files/${fileId}/text`, { token })).status, 404);
+    const stored = (await app.db.query<{ storage_path: string }>("SELECT storage_path FROM documents WHERE id = $1", [fileId])).rows[0]!.storage_path;
+    await writeFile(path.join(app.config.uploadDir, stored + ".converted.md"), "# Plan\n\nThe text.");
+    const text = await app.call("GET", `/api/files/${fileId}/text`, { token });
+    assert.equal(text.status, 200);
+    assert.equal(text.text, "# Plan\n\nThe text.");
+    const original = await app.call("GET", `/api/files/${fileId}/content`, { token });
+    assert.match(original.headers.get("content-disposition") ?? "", /attachment/);
+    assert.equal((await app.call("DELETE", `/api/files/${fileId}`, { token })).status, 204);
+    assert.equal((await readdir(path.join(app.config.uploadDir, id))).length, 0);
+  });
+
+  test("the text of a .md file is the file itself, and other people cannot read it", async () => {
+    const alice = await app.register("txt1@example.com");
+    const bob = await app.register("txt2@example.com");
+    const folder = await app.folder(alice.token, "Docs");
+    const uploaded = await app.upload(alice.token, folder, "notes.md", "# Notes\n\nHello.");
+    const url = `/api/files/${uploaded.json.file.id}/text`;
+    assert.equal((await app.call("GET", url, { token: alice.token })).text, "# Notes\n\nHello.");
+    assert.equal((await app.call("GET", url, { token: bob.token })).status, 404);
   });
 
   test("the same name in a folder is refused, and the refused file is not left on disk", async () => {

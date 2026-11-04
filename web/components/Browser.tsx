@@ -146,7 +146,7 @@ export function Browser({ folderId, openFileId }: { folderId: string | null; ope
               <button className="btn primary" disabled={uploading} onClick={() => fileInput.current?.click()}>
                 {uploading ? "Uploading…" : "Upload files"}
               </button>
-              <input ref={fileInput} type="file" multiple accept=".md,.txt,.pdf,text/plain,text/markdown,application/pdf" hidden onChange={(e) => onFiles(e.target.files)} />
+              <input ref={fileInput} type="file" multiple accept=".md,.txt,.pdf,.docx,text/plain,text/markdown,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden onChange={(e) => onFiles(e.target.files)} />
             </>
           )}
         </div>
@@ -165,7 +165,7 @@ export function Browser({ folderId, openFileId }: { folderId: string | null; ope
 
       {empty ? (
         <p className="muted empty">
-          {folderId ? "This folder is empty. Create a folder inside it or upload .md, .txt or .pdf files." : "No folders yet. Create one to get started, then upload files into it."}
+          {folderId ? "This folder is empty. Create a folder inside it or upload .md, .txt, .pdf or .docx files." : "No folders yet. Create one to get started, then upload files into it."}
         </p>
       ) : (
         <ul className="rows">
