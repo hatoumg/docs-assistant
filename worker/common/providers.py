@@ -32,7 +32,7 @@ def model_for(provider, settings, override=""):
     return settings.provider_models.get(provider) or PRESETS[provider].default_model
 
 
-def create_provider_llm(provider, model, settings, usage):
+def create_provider_llm(provider, model, settings):
     """Build the raw (not yet cached or budgeted) model for one provider."""
     if provider not in PROVIDERS:
         raise ValueError(f"Unknown provider '{provider}'. Choose from: {', '.join(PROVIDERS)}")
@@ -43,10 +43,10 @@ def create_provider_llm(provider, model, settings, usage):
     if provider == "gemini":
         from common.gemini import GeminiLLM
 
-        return GeminiLLM(key, model, settings.max_retries, usage)
+        return GeminiLLM(key, model, settings.max_retries)
     from common.openai_compatible import OpenAICompatibleLLM
 
-    return OpenAICompatibleLLM(provider, PRESETS[provider].base_url, key, model, settings.max_retries, usage)
+    return OpenAICompatibleLLM(provider, PRESETS[provider].base_url, key, model, settings.max_retries)
 
 
 def tokens_per_minute_for(provider, settings):

@@ -226,3 +226,13 @@ node_modules/
 
 # Embedding cache
 worker/.cache/
+
+# Web app
+.next/
+storage/
+# the Python template above ignores every folder called lib/; the website's own lib/ must be kept
+!web/lib/
+!web/lib/**
+next-env.d.ts
+*.tsbuildinfo
+_to_delete/

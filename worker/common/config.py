@@ -5,7 +5,7 @@ WORKER_DIR = Path(__file__).resolve().parents[1]
 REPO_DIR = WORKER_DIR.parent
 
 # Phase 1: indexing
-COLLECTION = "simple"        # name of this index inside the database (a different name = a separate index)
+COLLECTION = "simple-nomic"  # name of this index in the database. Use a new name whenever chunking or the embedding model changes
 CHUNK_SIZE_WORDS = 200       # how many words go in one chunk
 CHUNK_OVERLAP_WORDS = 40     # how many words are repeated between neighbouring chunks
 

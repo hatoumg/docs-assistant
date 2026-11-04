@@ -9,7 +9,6 @@ import urllib.error
 import urllib.request
 
 from common.retry import call_with_retries
-from common.usage import UsageMeter
 
 
 class LLMRequestError(RuntimeError):
@@ -52,13 +51,12 @@ def _http_post(url, headers, payload, timeout):
 
 
 class OpenAICompatibleLLM:
-    def __init__(self, provider, base_url, api_key, model, retries=5, usage=None, post=_http_post, sleep=None, timeout=60):
+    def __init__(self, provider, base_url, api_key, model, retries=5, post=_http_post, sleep=None, timeout=60):
         self._provider = provider
         self._url = base_url.rstrip("/") + "/chat/completions"
         self._api_key = api_key
         self._model = model
         self._retries = retries
-        self._usage = usage or UsageMeter()
         self._post = post
         self._sleep = sleep
         self._timeout = timeout
@@ -83,6 +81,4 @@ class OpenAICompatibleLLM:
                 raise LLMRequestError(f"unexpected reply from {self._provider}: {str(data)[:200]}") from None
 
         extra = {"sleep": self._sleep} if self._sleep else {}
-        text = call_with_retries(call, tries=self._retries, retryable=is_transient, wait_hint=suggested_wait, **extra)
-        self._usage.llm_calls += 1
-        return text
+        return call_with_retries(call, tries=self._retries, retryable=is_transient, wait_hint=suggested_wait, **extra)

@@ -3,33 +3,9 @@ from datetime import date
 
 import pytest
 
-from common.cache import BudgetedLLM, BudgetExceeded, CachedEmbedder, CachedLLM
+from common.cache import BudgetedLLM, BudgetExceeded, CachedLLM
 from common.retry import call_with_retries
-from tests.fakes import FakeEmbedder, ScriptedLLM
-
-
-def test_embedding_cache_avoids_repeat_calls(tmp_path):
-    inner = FakeEmbedder()
-    cached = CachedEmbedder(inner, tmp_path)
-    first = cached.embed_documents(["alpha", "beta"])
-    second = cached.embed_documents(["alpha", "beta"])
-    assert first == second
-    assert inner.document_calls == 1
-
-
-def test_embedding_cache_only_embeds_the_missing_texts(tmp_path):
-    inner = FakeEmbedder()
-    cached = CachedEmbedder(inner, tmp_path)
-    cached.embed_documents(["alpha"])
-    cached.embed_documents(["alpha", "beta"])
-    assert inner.document_calls == 2
-
-
-def test_query_and_document_embeddings_are_cached_separately(tmp_path):
-    cached = CachedEmbedder(FakeEmbedder(), tmp_path)
-    cached.embed_documents(["alpha"])
-    cached.embed_query("alpha")
-    assert len(list(tmp_path.glob("*.json"))) == 2
+from tests.fakes import ScriptedLLM
 
 
 def test_llm_cache(tmp_path):

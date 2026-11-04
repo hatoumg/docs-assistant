@@ -7,7 +7,6 @@ from common.openai_compatible import LLMRequestError, OpenAICompatibleLLM, is_tr
 from common.providers import PRESETS, create_provider_llm, model_for
 from common.models import build_llm
 from common.settings import Settings, load_settings
-from common.usage import UsageMeter
 from tests.fakes import ScriptedLLM
 
 
@@ -16,7 +15,7 @@ def reply(text):
 
 
 def adapter(post, retries=3, waits=None):
-    return OpenAICompatibleLLM("groq", "https://example.test/v1/", "k", "m", retries, UsageMeter(), post=post, sleep=(waits.append if waits is not None else lambda s: None))
+    return OpenAICompatibleLLM("groq", "https://example.test/v1/", "k", "m", retries, post=post, sleep=(waits.append if waits is not None else lambda s: None))
 
 
 def test_request_is_built_in_the_openai_format():
@@ -116,13 +115,13 @@ def test_settings_read_provider_fallback_keys_and_models():
 
 def test_missing_key_names_the_variable_to_set():
     with pytest.raises(RuntimeError) as error:
-        create_provider_llm("groq", "m", Settings(), UsageMeter())
+        create_provider_llm("groq", "m", Settings())
     assert "GROQ_API_KEY" in str(error.value)
 
 
 def test_unknown_provider_lists_the_choices():
     with pytest.raises(ValueError) as error:
-        create_provider_llm("nope", "m", Settings(), UsageMeter())
+        create_provider_llm("nope", "m", Settings())
     assert "groq" in str(error.value)
 
 
@@ -139,25 +138,25 @@ def test_build_llm_chains_providers_and_applies_the_judge_override_to_the_first_
         def model_id(self):
             return self.name
 
-    def factory(provider, model, settings, usage):
+    def factory(provider, model, settings):
         built.append((provider, model))
         return Named(provider, model)
 
-    chain = build_llm(settings, UsageMeter(), "judge", "big-model", factory=factory)
+    chain = build_llm(settings, "judge", "big-model", factory=factory)
     assert built == [("groq", "big-model"), ("gemini", settings.llm_model)]
     assert chain.complete("p") == "groq answer"
 
 
 def test_single_provider_has_no_fallback_wrapper(tmp_path):
     settings = Settings(cache_dir=tmp_path)
-    llm = build_llm(settings, UsageMeter(), "llm", factory=lambda *a: ScriptedLLM("x"))
+    llm = build_llm(settings, "llm", factory=lambda *a: ScriptedLLM("x"))
     assert not isinstance(llm, FallbackLLM)
 
 
 def test_a_used_up_budget_hands_over_to_the_fallback(tmp_path):
     settings = Settings(llm_provider="groq", llm_fallbacks=("gemini",), cache_dir=tmp_path, daily_llm_call_cap=1)
     models = {"groq": ScriptedLLM("groq answer"), "gemini": ScriptedLLM("gemini answer")}
-    chain = build_llm(settings, UsageMeter(), "llm", factory=lambda p, m, s, u: models[p])
+    chain = build_llm(settings, "llm", factory=lambda p, m, s: models[p])
     assert chain.complete("one") == "groq answer"
     assert chain.complete("two") == "gemini answer"  # groq's cap of 1 is spent
 
@@ -249,7 +248,7 @@ def test_groq_is_paced_by_default_and_the_limit_can_be_changed():
     assert tokens_per_minute_for("gemini", load_settings({})) == 0
 
 
-# ----- embedding pacing -----
+# ----- Gemini rate-limit handling -----
 
 
 def test_google_wait_hint_is_read_from_the_error():
@@ -260,28 +259,12 @@ def test_google_wait_hint_is_read_from_the_error():
     assert google_wait(RuntimeError("other")) is None
 
 
-def make_embedder(tokens_per_minute, batch_size=50):
-    from common.gemini import GeminiEmbedder
+def test_a_used_up_daily_quota_is_not_retried():
+    from common.gemini import is_transient as gemini_transient
 
-    embedder = GeminiEmbedder("k", "m", 4, batch_size, 0, 1, UsageMeter(), tokens_per_minute, chars_per_token=1.0)
-    batches = []
-    embedder._embed = lambda texts, task: (batches.append(len(texts)) or [[0.0] * 4 for _ in texts])
-    return embedder, batches
+    class Daily(Exception):
+        code = 429
 
-
-def test_embedding_batches_respect_the_token_budget():
-    embedder, batches = make_embedder(1000)  # budget 900 estimated tokens per batch
-    from common.throttle import TokenWindow
-
-    clock = FakeClock()
-    embedder._window = TokenWindow(1000, clock.clock, clock.sleep)
-    vectors = embedder.embed_documents(["x" * 299] * 10)  # 300 estimated tokens each -> 3 per batch
-    assert len(vectors) == 10
-    assert batches == [3, 3, 3, 1]
-    assert len(clock.waits) >= 1  # the second batch had to wait for the minute to pass
-
-
-def test_no_limit_means_full_batches():
-    embedder, batches = make_embedder(0, batch_size=4)
-    embedder.embed_documents(["x" * 300] * 10)
-    assert batches == [4, 4, 2]
+    assert not gemini_transient(Daily("quotaId: GenerateRequestsPerDayPerProjectPerModel-FreeTier"))
+    assert not gemini_transient(Daily("Requests per day limit exceeded on Free Tier"))
+    assert gemini_transient(Daily("Tokens per minute limit exceeded"))

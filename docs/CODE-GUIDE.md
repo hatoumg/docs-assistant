@@ -40,7 +40,8 @@ That is the only odd-looking line. `python -m 1_indexing.main` works as normal.
 - `common/models.py` is the one place that talks to the AI services, with four functions: `embed_texts`, `embed_query`,
   `ask_llm` and `ask_judge`. The files next to it do the plumbing: `throttle.py` waits when a free-tier limit is near,
   `retry.py` retries failed calls, `cache.py` remembers answers on disk and caps daily calls, `gemini.py` and
-  `openai_compatible.py` talk to the services, `providers.py` and `fallback.py` choose between them.
+  `openai_compatible.py` talk to the answering services, `providers.py` and `fallback.py` choose between them.
+  `ollama.py` makes the embeddings on your own computer (install Ollama, then `ollama pull nomic-embed-text`).
   You do not need to read those to follow the steps.
 - `common/database.py` opens the database connection.
 - `common/settings.py` reads `.env`.

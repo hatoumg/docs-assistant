@@ -1,0 +1,26 @@
+{
+  "name": "docs-assistant-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The TypeScript API: accounts, folders, uploads and chat. The website talks to it; it talks to Postgres and the Python RAG service.",
+  "scripts": {
+    "dev": "tsx watch --env-file=../.env src/server.ts",
+    "start": "node --env-file=../.env dist/server.js",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test --test-concurrency=1 tests/*.test.ts"
+  },
+  "dependencies": {
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}

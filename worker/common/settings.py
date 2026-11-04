@@ -12,12 +12,11 @@ DEFAULT_DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/docs_assis
 @dataclass(frozen=True)
 class Settings:
     database_url: str = DEFAULT_DATABASE_URL
-    gemini_api_key: str = ""
-    embed_model: str = "gemini-embedding-001"
+    ollama_url: str = "http://localhost:11434"  # where the Ollama program is listening
+    embed_model: str = "nomic-embed-text"  # downloaded once with: ollama pull nomic-embed-text
     embed_dim: int = 768  # must match vector(768) in the database
-    embed_batch_size: int = 50
-    embed_pause_seconds: float = 1.0
-    embed_tokens_per_minute: int = 30000  # Gemini free tier; set 0 to turn pacing off
+    rag_service_secret: str = ""  # the TypeScript API sends this to prove it is allowed to call the service
+    upload_dir: Path = REPO_ROOT / "storage" / "uploads"  # where the API saves uploaded files
     llm_model: str = "gemini-3.8-flash"
     judge_model: str = ""  # empty means: use the main provider's model
     llm_provider: str = "gemini"  # which service writes answers: gemini, groq, openrouter or mistral
@@ -28,11 +27,6 @@ class Settings:
     max_retries: int = 5
     daily_llm_call_cap: int = 200
     cache_dir: Path = WORKER_DIR / ".cache"
-
-    def require_api_key(self) -> str:
-        if not self.gemini_api_key or self.gemini_api_key == "your-key-here":
-            raise RuntimeError("Set GEMINI_API_KEY in the .env file in the repo root.")
-        return self.gemini_api_key
 
 
 KEY_VARIABLES = {
@@ -64,7 +58,10 @@ def load_settings(env=None) -> Settings:
     limits = {name: int(env[var]) for name, var in LIMIT_VARIABLES.items() if env.get(var)}
     return Settings(
         database_url=env.get("DATABASE_URL", defaults.database_url),
-        gemini_api_key=keys["gemini"],
+        ollama_url=env.get("OLLAMA_URL", defaults.ollama_url),
+        embed_model=env.get("EMBED_MODEL", defaults.embed_model),
+        rag_service_secret=env.get("RAG_SERVICE_SECRET", ""),
+        upload_dir=Path(env["UPLOAD_DIR"]).resolve() if env.get("UPLOAD_DIR") else defaults.upload_dir,
         llm_model=env.get("GEMINI_MODEL", defaults.llm_model),
         judge_model=env.get("JUDGE_MODEL", ""),
         llm_provider=env.get("LLM_PROVIDER", defaults.llm_provider).strip().lower(),
@@ -72,6 +69,5 @@ def load_settings(env=None) -> Settings:
         provider_keys=keys,
         provider_models=models,
         provider_limits=limits,
-        embed_tokens_per_minute=int(env.get("EMBED_TOKENS_PER_MINUTE", defaults.embed_tokens_per_minute)),
         daily_llm_call_cap=int(env.get("MAX_REQUESTS_PER_DAY", defaults.daily_llm_call_cap)),
     )

@@ -4,3 +4,9 @@ numpy
 python-dotenv
 google-genai
 pytest
+starlette
+uvicorn
+httpx
+pdfplumber
+markitdown[docx]
+python-docx  # only the tests use it, to build sample Word files

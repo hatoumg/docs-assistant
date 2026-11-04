@@ -30,9 +30,9 @@ def answer_from_chunks(question, chunks):
     return answer
 
 
-def answer_question(question, sources=None):
-    """Finds the chunks (phase 2), then writes the answer."""
-    chunks = retrieve(question, sources)
+def answer_question(question, sources=None, scope=None):
+    """Finds the chunks (phase 2), then writes the answer. scope limits the search to one user's documents."""
+    chunks = retrieve(question, sources, scope=scope)
     return answer_from_chunks(question, chunks)
 
 
