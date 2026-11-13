@@ -29,7 +29,7 @@ def evaluate_question(question, sources, retrieval_only):
     # Step 2: Did the search find the right file?
     row = {"id": question["id"], "kind": question["kind"], "question": question["question"],
            "answerable": question["answerable"], "passed": None, "found": None,
-           "correctness": None, "faithfulness": None, "citation": None}
+           "correctness": None, "faithfulness": None, "citation": None, "reason": "", "answer": ""}
     row.update(score_retrieval(question, chunks))
     if retrieval_only:
         return row
@@ -43,6 +43,8 @@ def evaluate_question(question, sources, retrieval_only):
     if question["answerable"] and answer["found"]:
         scores = judge_answer(question, answer)
     row.update({k: scores[k] for k in ("correctness", "faithfulness", "citation")})
+    row["reason"] = scores.get("reason", "")  # the judge's one-sentence explanation, to see why a question failed
+    row["answer"] = answer.get("text", "")
     row["passed"] = did_pass(question, answer, scores)
     return row
 

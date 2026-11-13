@@ -4,6 +4,17 @@ import re
 from pathlib import Path
 
 
+def files_in_source(source):
+    """The file names in a question's 'source' text, e.g. 'My Contract, Inc.txt, Governing Law' -> {'My Contract, Inc.txt'}.
+    Several passages are separated by ';'. File names may contain spaces and commas."""
+    found = set()
+    for part in source.split(";"):
+        match = re.match(r"\s*(.+?\.(?:md|txt))(?=\s*(?:,|$))", part)
+        if match:
+            found.add(match.group(1))
+    return found
+
+
 def load_questions(path, limit=0):
     """Read a question file. Each question is a dictionary with these keys:
         id, kind ('direct', 'multi-passage' or 'not-found'), question,
@@ -12,7 +23,7 @@ def load_questions(path, limit=0):
     """
     questions = json.loads(Path(path).read_text(encoding="utf-8"))
     for q in questions:
-        q["files"] = set(re.findall(r"[\w.\-]+\.(?:md|txt)", q.get("source", "")))
+        q["files"] = files_in_source(q.get("source", ""))
         q["answerable"] = q.get("kind") != "not-found"
     if limit:
         questions = questions[:limit]
