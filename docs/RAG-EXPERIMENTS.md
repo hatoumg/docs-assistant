@@ -153,3 +153,26 @@ Add this when time allows, after the comparison work.
 - Log a low retrieval score, then retry automatically with a different technique, such as multi-query or a larger top-k.
 - Review the failures each Friday and re-run the eval, so every fix shows up as a score change.
 - Keep this separate from the test set. Failures found by users go into the dev set only.
+
+## Chunk size sweep
+
+`worker/4_evaluation/chunk_sweep.py` compares chunk sizes without touching the database. It cuts the documents at each size (default 50, 100, 200, 300, 500 and 800 words, 20% overlap), embeds them with Ollama, searches with the questions and reports, per size: answer hit@1/3/5 (a top chunk from the right file contains the answer), MRR, hit within a fixed word budget, file hit@5 and how many words the top 5 chunks add up to. Embeddings are cached in `worker/.cache`, so a rerun is fast.
+
+```
+cd worker
+python -m 4_evaluation.chunk_sweep ../evals/contracts-dev.json --docs ../data/raw/cuad-dev
+python -m 4_evaluation.chunk_sweep ../evals/technical.json --docs ../data/samples/technical --sizes 50,100,200,400
+```
+
+Read the budget column alongside the top-5 columns: bigger chunks fill the top 5 with much more text, so they find the answer more often partly by showing the model more. Only questions whose answer appears word for word in the document (dates also match "January 22, 2007") can be checked this way; the rest count in file hit only. Results are appended to `evals/chunk-sweep.csv`. Tune on the dev set; run the test set once, at the end.
+
+### Comparing chunking methods
+
+`worker/1_indexing/3_chunk.py` has four methods: `fixed` (the baseline), `recursive` (general text), `headings` (Markdown, and every PDF or Word upload after conversion) and `clauses` (numbered contract clauses). All but `fixed` pack and merge pieces to about the same size. Each chunk also gets a context line ("Document title > Section"), which can be put in front of the chunk before embedding.
+
+```
+python -m 4_evaluation.chunk_sweep ../evals/contracts-dev.json --docs ../data/raw/cuad-dev --sizes 300 --methods fixed,recursive,clauses --context both
+python -m 4_evaluation.chunk_sweep ../evals/technical.json --docs ../data/samples/technical --sizes 300 --methods fixed,recursive,headings --context both
+```
+
+Compare methods at the same size and read MRR and hit@budget: the structure-aware methods make slightly smaller chunks on average. To use a winner in the app, set `RAG_CHUNK_METHOD` (or `auto`) and `RAG_CHUNK_CONTEXT=1`, and give the index a new `RAG_COLLECTION` name.

@@ -45,9 +45,14 @@ def index_folder(folder):
     save_chunks(chunks, vectors)
 
 
-def index_upload(document_id, path, name, file_hash):
-    """Index one file uploaded through the web app. Same steps as above; the database row already exists."""
+def index_upload(document_id, path, name, file_hash, doc_type=None):
+    """Index one file uploaded through the web app. Same steps as above; the database row already exists.
+
+    doc_type is the kind of document the user picked (general, technical, report, paper, contract, legal, policy).
+    It chooses the chunking method (DOC_TYPES in 3_chunk.py); without it, CHUNK_METHOD in common/config.py is used.
+    """
     document = load_file(path, name, file_hash)
+    document["doc_type"] = doc_type
     if Path(path).suffix.lower() in CONVERTIBLE:
         # Keep the converted text next to the original, so the website can show "the text version" of a PDF or Word file.
         # The API reads (and deletes) this same name: keep CONVERTED_SUFFIX in api/src/storage.ts the same.

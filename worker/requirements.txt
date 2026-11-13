@@ -9,4 +9,5 @@ uvicorn
 httpx
 pdfplumber
 markitdown[docx]
+langchain-text-splitters  # does the cutting in 1_indexing/3_chunk.py
 python-docx  # only the tests use it, to build sample Word files
