@@ -1,4 +1,4 @@
-import type { ChatResult, FileItem, FolderItem, Listing } from "./types";
+import type { ChatResult, DocType, FileItem, FolderItem, Listing } from "./types";
 
 /** Calls from the browser. They go to the website's own /backend proxy, which adds the sign-in token. */
 export class ApiError extends Error {
@@ -34,8 +34,9 @@ export const listFolder = (id: string | null) => call<Listing>(id ? `folders?par
 export const createFolder = (name: string, parentId: string | null) =>
   call<{ folder: FolderItem }>("folders", json("POST", { name, parentId }));
 export const deleteFolder = (id: string) => call<void>(`folders/${id}`, { method: "DELETE" });
-export const uploadFile = (folderId: string, file: File) =>
-  call<{ file: FileItem }>(`folders/${folderId}/files?name=${encodeURIComponent(file.name)}`, {
+/** docType tells the server what kind of document this is ("auto" lets it decide). */
+export const uploadFile = (folderId: string, file: File, docType: DocType = "auto") =>
+  call<{ file: FileItem }>(`folders/${folderId}/files?name=${encodeURIComponent(file.name)}&type=${encodeURIComponent(docType)}`, {
     method: "POST",
     headers: { "content-type": "application/octet-stream" },
     body: file,

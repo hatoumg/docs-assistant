@@ -3,6 +3,8 @@ import { HttpError, badRequest, notFound } from "./errors.js";
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const CONTROL_CHARACTERS = /[\u0000-\u001f\u007f]/;
 export const ALLOWED_EXTENSIONS = [".md", ".txt", ".pdf", ".docx"];
+/** The kinds of document a user can say they are uploading. Keep in step with DOC_TYPES in worker/1_indexing/3_chunk.py. */
+export const DOC_TYPES = ["general", "technical", "report", "paper", "contract", "legal", "policy"];
 
 /** An id in a web address. A malformed one is "not found", the same as an id that does not exist. */
 export function parseUuid(value: unknown, what = "Item"): string {
@@ -32,6 +34,13 @@ export function cleanFileName(value: unknown): { name: string; extension: string
     throw new HttpError(415, "unsupported_type", `Only ${ALLOWED_EXTENSIONS.slice(0, -1).join(", ")} and ${ALLOWED_EXTENSIONS[ALLOWED_EXTENSIONS.length - 1]} files can be uploaded.`);
   }
   return { name, extension };
+}
+
+/** The document type from ?type=. Missing, empty or "auto" means the app decides (null). */
+export function cleanDocType(value: string | null): string | null {
+  if (value === null || value === "" || value === "auto") return null;
+  if (!DOC_TYPES.includes(value)) throw badRequest(`The document type must be one of: auto, ${DOC_TYPES.join(", ")}.`);
+  return value;
 }
 
 export function cleanEmail(value: unknown): string {

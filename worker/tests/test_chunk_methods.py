@@ -125,3 +125,16 @@ def test_the_context_line_is_only_embedded_when_asked():
 
 def test_title_from_file_name():
     assert title_from_name("Acme_Inc_Distributor Agreement.txt") == "Acme Inc Distributor Agreement"
+
+
+def test_an_upload_is_cut_with_the_method_for_the_type_the_user_picked(tmp_path, monkeypatch):
+    from importlib import import_module
+
+    index_main = import_module("1_indexing.main")
+    path = tmp_path / "deal.txt"
+    path.write_text(CONTRACT, encoding="utf-8")
+    saved = []
+    monkeypatch.setattr(index_main, "embed_chunks", lambda chunks: [[0.0]] * len(chunks))
+    monkeypatch.setattr(index_main, "save_document_chunks", lambda document_id, chunks, vectors: saved.extend(chunks))
+    index_main.index_upload(7, path, "deal.txt", "h", "contract")
+    assert saved and all(c["method"] == "clauses" for c in saved)

@@ -208,6 +208,19 @@ describe("files", () => {
     assert.match(content.headers.get("content-type") ?? "", /^text\/plain/);
   });
 
+  test("the document type is stored with the file, and a wrong type is refused", async () => {
+    const { token } = await app.register("files-type@example.com");
+    const folder = await app.folder(token, "Contracts");
+    const contract = await app.upload(token, folder, "deal.md", "1. TERM This lasts a year.", "contract");
+    assert.equal(contract.status, 202);
+    assert.equal(contract.json.file.docType, "contract");
+    const stored = await app.db.query<{ doc_type: string | null }>("SELECT doc_type FROM documents WHERE id = $1", [contract.json.file.id]);
+    assert.equal(stored.rows[0]!.doc_type, "contract");
+    assert.equal((await app.upload(token, folder, "plain.md", "Some text.")).json.file.docType, null);
+    assert.equal((await app.upload(token, folder, "auto.md", "Some text.", "auto")).json.file.docType, null);
+    assert.equal((await app.upload(token, folder, "bad.md", "Some text.", "poem")).status, 400);
+  });
+
   test("a failed handover to the indexing service is shown on the file", async () => {
     const { token } = await app.register("files2@example.com");
     const folder = await app.folder(token, "Docs");

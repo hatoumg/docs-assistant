@@ -7,7 +7,7 @@ import type { RagClient } from "../ragClient.js";
 import { readConverted, readUpload, removeUploads, saveUpload } from "../storage.js";
 import { countFiles, deleteFile, getFile, insertFile, markFailed, type FileRow } from "../store/files.js";
 import { getFolder } from "../store/folders.js";
-import { cleanFileName, parseId, parseUuid } from "../validate.js";
+import { cleanDocType, cleanFileName, parseId, parseUuid } from "../validate.js";
 
 export const fileJson = (row: FileRow) => ({
   id: row.id,
@@ -16,6 +16,7 @@ export const fileJson = (row: FileRow) => ({
   status: row.status,
   error: row.error,
   sizeBytes: row.size_bytes === null ? null : Number(row.size_bytes),
+  docType: row.doc_type,
   createdAt: row.created_at,
 });
 
@@ -35,6 +36,7 @@ export function fileRoutes(db: Db, rag: RagClient, limits: UploadLimits): RouteS
   return [
     {
       // The request body is the raw file and the name comes from ?name= (so there is no multipart format to parse).
+      // ?type= is the kind of document (contract, technical...), which chooses how it is cut into chunks. Leave it out to let the app decide.
       method: "POST",
       path: "/api/folders/:id/files",
       auth: "user",
@@ -43,6 +45,7 @@ export function fileRoutes(db: Db, rag: RagClient, limits: UploadLimits): RouteS
         const folderId = parseUuid(ctx.params.id, "Folder");
         if (!(await getFolder(db, userId, folderId))) throw notFound("Folder");
         const { name, extension } = cleanFileName(ctx.url.searchParams.get("name"));
+        const docType = cleanDocType(ctx.url.searchParams.get("type"));
         if ((await countFiles(db, userId)) >= limits.maxFilesPerUser) {
           throw new HttpError(409, "quota", `You can keep up to ${limits.maxFilesPerUser} files. Delete some first.`);
         }
@@ -70,6 +73,7 @@ export function fileRoutes(db: Db, rag: RagClient, limits: UploadLimits): RouteS
             hash: createHash("sha256").update(bytes).digest("hex"),
             sizeBytes: bytes.length,
             storagePath,
+            docType,
           });
         } catch (error) {
           await removeUploads(limits.uploadDir, [storagePath]);

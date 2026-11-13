@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { createFolder, deleteFile, deleteFolder, listFolder, uploadFile } from "@/lib/api";
 import { formatDate, formatSize } from "@/lib/format";
-import type { FileItem, Listing } from "@/lib/types";
+import { DOC_TYPES, docTypeLabel, type DocType, type FileItem, type Listing } from "@/lib/types";
 import { FilePreview } from "./FilePreview";
 import { useScope } from "./Scope";
 
@@ -19,6 +19,7 @@ export function Browser({ folderId, openFileId }: { folderId: string | null; ope
   const [newName, setNewName] = useState("");
   const [confirm, setConfirm] = useState<string | null>(null); // "folder:<id>" or "file:<id>"
   const [uploading, setUploading] = useState(false);
+  const [docType, setDocType] = useState<DocType>("auto"); // what kind of document the next upload is
   const [preview, setPreview] = useState<{ file: FileItem; highlight?: string } | null>(null);
   const handledHighlight = useRef(0);
   const fileInput = useRef<HTMLInputElement>(null);
@@ -88,7 +89,7 @@ export function Browser({ folderId, openFileId }: { folderId: string | null; ope
     const problems: string[] = [];
     for (const file of Array.from(files)) {
       try {
-        await uploadFile(folderId, file);
+        await uploadFile(folderId, file, docType);
       } catch (e) {
         problems.push(`${file.name}: ${(e as Error).message}`);
       }
@@ -143,6 +144,18 @@ export function Browser({ folderId, openFileId }: { folderId: string | null; ope
           <button className="btn" onClick={() => setCreating((v) => !v)}>New folder</button>
           {folderId && (
             <>
+              <select
+                className="doc-type"
+                value={docType}
+                disabled={uploading}
+                onChange={(e) => setDocType(e.target.value as DocType)}
+                aria-label="Kind of document to upload"
+                title="The kind of document decides how it is split into passages for search"
+              >
+                {DOC_TYPES.map((t) => (
+                  <option key={t.value} value={t.value}>{t.label}</option>
+                ))}
+              </select>
               <button className="btn primary" disabled={uploading} onClick={() => fileInput.current?.click()}>
                 {uploading ? "Uploading…" : "Upload files"}
               </button>
@@ -184,6 +197,7 @@ export function Browser({ folderId, openFileId }: { folderId: string | null; ope
               <button className="row-main" onClick={() => setPreview({ file })} disabled={file.status === "failed"}>
                 <span className="icon" aria-hidden>📄</span>
                 <span className="name">{file.name}</span>
+                {file.docType && <span className="meta">{docTypeLabel(file.docType)}</span>}
                 <span className="meta">{formatSize(file.sizeBytes)}</span>
                 <span className={`badge ${file.status}`}>
                   {file.status === "processing" ? "Reading…" : file.status === "ready" ? "Ready" : "Failed"}

@@ -62,7 +62,17 @@ def test_index_answers_at_once_then_indexes_the_stored_file(monkeypatch, tmp_pat
     monkeypatch.setattr(service, "index_upload", lambda *args: calls.append(args))
     response = c.post("/index", json={"document_id": 5}, headers=HEADERS)
     assert response.status_code == 202 and response.json() == {"status": "processing"}
-    assert calls == [(5, (tmp_path / OWNER / "5.md").resolve(), "a.md", "h")]
+    assert calls == [(5, (tmp_path / OWNER / "5.md").resolve(), "a.md", "h", None)]
+
+
+def test_the_document_type_the_user_picked_reaches_the_indexer(monkeypatch, tmp_path):
+    c = client(monkeypatch, tmp_path)
+    document = {"id": 6, "name": "deal.txt", "file_hash": "h", "storage_path": f"{OWNER}/6.txt", "doc_type": "contract"}
+    calls = []
+    monkeypatch.setattr(service, "fetch_pending_document", lambda document_id: document)
+    monkeypatch.setattr(service, "index_upload", lambda *args: calls.append(args))
+    assert c.post("/index", json={"document_id": 6}, headers=HEADERS).status_code == 202
+    assert calls[0][-1] == "contract"
 
 
 def test_a_failed_indexing_is_recorded_on_the_document(monkeypatch, tmp_path):

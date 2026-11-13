@@ -62,7 +62,7 @@ export interface TestApp {
   register(email: string, password?: string): Promise<{ id: string; token: string }>;
   tokenFor(userId: string): string;
   folder(token: string, name: string, parentId?: string): Promise<string>;
-  upload(token: string, folderId: string, name: string, content?: string | Buffer): Promise<Result>;
+  upload(token: string, folderId: string, name: string, content?: string | Buffer, docType?: string): Promise<Result>;
   stop(): Promise<void>;
 }
 
@@ -124,8 +124,9 @@ export async function startApp(overrides: Partial<Config> = {}): Promise<TestApp
       if (created.status !== 201) throw new Error(`folder failed: ${created.text}`);
       return created.json.folder.id;
     },
-    upload(token, folderId, name, content = "Some text to search.") {
-      return app.call("POST", `/api/folders/${folderId}/files?name=${encodeURIComponent(name)}`, { token, raw: content });
+    upload(token, folderId, name, content = "Some text to search.", docType) {
+      const type = docType === undefined ? "" : `&type=${encodeURIComponent(docType)}`;
+      return app.call("POST", `/api/folders/${folderId}/files?name=${encodeURIComponent(name)}${type}`, { token, raw: content });
     },
     async stop() {
       server.closeAllConnections();

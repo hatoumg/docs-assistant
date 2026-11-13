@@ -75,11 +75,14 @@ def fetch_pending_document(document_id):
     """The row of an uploaded file that is waiting to be indexed, or None."""
     connection = connect()
     row = connection.execute(
-        "SELECT id, name, file_hash, storage_path FROM documents WHERE id = %s AND owner_id IS NOT NULL AND status = 'processing'",
+        "SELECT id, name, file_hash, storage_path, doc_type FROM documents"
+        " WHERE id = %s AND owner_id IS NOT NULL AND status = 'processing'",
         (document_id,),
     ).fetchone()
     connection.close()
-    return None if row is None else {"id": row[0], "name": row[1], "file_hash": row[2], "storage_path": row[3]}
+    if row is None:
+        return None
+    return {"id": row[0], "name": row[1], "file_hash": row[2], "storage_path": row[3], "doc_type": row[4]}
 
 
 def path_inside_uploads(storage_path):
@@ -94,7 +97,9 @@ def path_inside_uploads(storage_path):
 def run_indexing(document):
     """Runs after the response has been sent. Any failure is saved on the document so the user can see it."""
     try:
-        index_upload(document["id"], path_inside_uploads(document["storage_path"]), document["name"], document["file_hash"])
+        # doc_type is the kind of document the user picked when uploading; it chooses the chunking method (None: the app decides)
+        path = path_inside_uploads(document["storage_path"])
+        index_upload(document["id"], path, document["name"], document["file_hash"], document.get("doc_type"))
     except Exception as error:
         print(f"Indexing document {document['id']} failed: {error!r}")
         mark_failed(document["id"], f"Could not index this file: {error}")

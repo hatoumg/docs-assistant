@@ -40,6 +40,8 @@ input:focus, textarea:focus, .btn:focus-visible { outline: 2px solid var(--accen
 .crumbs .sep { margin: 0 .4rem; color: var(--muted); }
 .toolbar { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: .8rem; }
 .actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+.doc-type { font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: .4rem .6rem; }
+.doc-type:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .inline-form { display: flex; gap: .5rem; margin-bottom: .8rem; }
 .inline-form input { flex: 1; }
 .rows { list-style: none; margin: 0; padding: 0; }

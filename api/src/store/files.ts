@@ -11,9 +11,10 @@ export interface FileRow {
   size_bytes: string | null;
   created_at: string;
   storage_path: string | null;
+  doc_type: string | null;
 }
 
-const COLUMNS = "id, name, folder_id, status, error, size_bytes, created_at, storage_path";
+const COLUMNS = "id, name, folder_id, status, error, size_bytes, created_at, storage_path, doc_type";
 
 export async function listFiles(db: Db, ownerId: string, folderId: string): Promise<FileRow[]> {
   const result = await db.query<FileRow>(
@@ -36,12 +37,12 @@ export async function countFiles(db: Db, ownerId: string): Promise<number> {
 /** Starts as 'processing'. Throws a unique violation if the folder already has a file with this name. */
 export async function insertFile(
   db: Db,
-  file: { ownerId: string; folderId: string; name: string; hash: string; sizeBytes: number; storagePath: string },
+  file: { ownerId: string; folderId: string; name: string; hash: string; sizeBytes: number; storagePath: string; docType: string | null },
 ): Promise<FileRow> {
   const result = await db.query<FileRow>(
-    `INSERT INTO documents (owner_id, folder_id, name, source, file_hash, size_bytes, storage_path, status)
-     VALUES ($1, $2, $3, 'uploads', $4, $5, $6, 'processing') RETURNING ${COLUMNS}`,
-    [file.ownerId, file.folderId, file.name, file.hash, file.sizeBytes, file.storagePath],
+    `INSERT INTO documents (owner_id, folder_id, name, source, file_hash, size_bytes, storage_path, doc_type, status)
+     VALUES ($1, $2, $3, 'uploads', $4, $5, $6, $7, 'processing') RETURNING ${COLUMNS}`,
+    [file.ownerId, file.folderId, file.name, file.hash, file.sizeBytes, file.storagePath, file.docType],
   );
   return result.rows[0]!;
 }

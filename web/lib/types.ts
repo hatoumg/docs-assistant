@@ -9,6 +9,22 @@ export interface FolderItem {
 
 export type FileStatus = "processing" | "ready" | "failed";
 
+/** The kinds of document a user can pick when uploading. The type chooses how the file is cut into passages for search.
+ * Keep the values in step with DOC_TYPES in api/src/validate.ts and worker/1_indexing/3_chunk.py. */
+export const DOC_TYPES = [
+  { value: "auto", label: "Let the app decide" },
+  { value: "general", label: "General text" },
+  { value: "technical", label: "Technical docs" },
+  { value: "report", label: "Report" },
+  { value: "paper", label: "Research paper" },
+  { value: "contract", label: "Contract" },
+  { value: "legal", label: "Legal text" },
+  { value: "policy", label: "Policy" },
+] as const;
+export type DocType = (typeof DOC_TYPES)[number]["value"];
+
+export const docTypeLabel = (value: string | null) => DOC_TYPES.find((t) => t.value === value)?.label ?? null;
+
 export interface FileItem {
   id: number;
   name: string;
@@ -16,6 +32,7 @@ export interface FileItem {
   status: FileStatus;
   error: string | null;
   sizeBytes: number | null;
+  docType: string | null; // null when the user let the app decide
   createdAt: string;
 }
 
